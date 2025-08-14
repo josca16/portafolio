@@ -7,8 +7,6 @@ Portfolio personal desarrollado con Next.js y Tailwind CSS, diseñado para mostr
 - **Nombre:** Jose Carlos Membrive Martinez
 - **Títulado:** Técnico Superior en Desarrollo de Aplicaciones Multiplataforma
 - **Email:** josecarlosmartinez98@outlook.com
-- **Teléfono:** +34 618927313
-- **GPA:** 8.2/10
 
 ## 🚀 Proyectos Destacados
 
