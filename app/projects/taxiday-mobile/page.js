@@ -3,36 +3,31 @@ import Link from "next/link";
 
 export default function TaxiDayMobilePage() {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+        <div className="min-h-screen bg-slate-900">
             {/* Header */}
-            <header className="relative py-6 sm:py-8 px-4 sm:px-6 border-b border-white/20">
-                <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <Link href="/" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors">
-                        <span className="text-xl sm:text-2xl">←</span>
-                        <span className="text-base sm:text-lg font-semibold">Volver al Portfolio</span>
-                    </Link>
-                    <div className="flex items-center gap-3 sm:gap-4">
-                        <Image
-                            src="/projects_logo/LOGOtaxiday_mobile.png"
-                            alt="TaxiDay Logo"
-                            width={32}
-                            height={32}
-                            className="rounded-lg sm:w-10 sm:h-10"
-                        />
-                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">TaxiDay Mobile</h1>
+            <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-cyan-600/20">
+                <div className="container-custom py-4">
+                    <div className="flex items-center justify-between">
+                        <Link href="/" className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <span className="text-xl">←</span>
+                            <span className="text-sm font-semibold">Volver al Portfolio</span>
+                        </Link>
+                        <div className="flex items-center gap-2">
+                            <Image src="/projects_logo/LOGOtaxiday_mobile.png" alt="TaxiDay Logo" width={28} height={28} className="rounded-lg" />
+                            <h1 className="text-xl md:text-2xl font-bold text-white">TaxiDay Mobile</h1>
+                        </div>
                     </div>
                 </div>
             </header>
 
-            {/* Main Content */}
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+            <main className="container-custom py-8">
                 {/* Introduction */}
-                <section className="mb-12 sm:mb-16">
-                    <div className="text-center mb-8 sm:mb-12">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
+                <section className="mb-12">
+                    <div className="text-center mb-8">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                             Aplicación Móvil TaxiDay
                         </h2>
-                        <p className="text-base sm:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
+                        <p className="text-base text-slate-300 max-w-3xl mx-auto">
                             Desarrollo de una aplicación móvil nativa para la gestión de servicios de taxi, 
                             optimizada para dispositivos móviles con React Native.
                         </p>
@@ -40,223 +35,80 @@ export default function TaxiDayMobilePage() {
                 </section>
 
                 {/* Project Overview */}
-                <section className="bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/10 mb-8 sm:mb-12">
-                    <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-start">
+                <section className="card p-8 mb-12">
+                    <div className="grid lg:grid-cols-2 gap-8">
                         <div>
-                            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-500 rounded-lg sm:rounded-xl flex items-center justify-center">
-                                    <span className="text-xl sm:text-2xl">🚕</span>
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-10 h-10 bg-yellow-500 rounded-lg flex items-center justify-center">
+                                    <span className="text-xl">🚕</span>
                                 </div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-white">Descripción del Proyecto</h3>
+                                <h3 className="text-xl font-bold text-white">Descripción del Proyecto</h3>
                             </div>
-                            
-                            <div className="space-y-3 sm:space-y-4 text-sm text-gray-300">
-                                <p>
-                                    <strong className="text-white">Experiencia personal:</strong> La idea surgió de observar las dificultades 
-                                    de mi padre, un taxista con más de 20 años de experiencia, para encontrar una aplicación útil y sencilla.
-                                </p>
-                                <p>
-                                    <strong className="text-white">Problema identificado:</strong> Las aplicaciones existentes no son intuitivas, 
-                                    no cubren las necesidades reales de los taxistas y no simplifican sus tareas diarias.
-                                </p>
-                                <p>
-                                    <strong className="text-white">Solución móvil:</strong> Versión nativa optimizada para dispositivos móviles, 
-                                    ofreciendo la misma funcionalidad con mejor experiencia de usuario.
-                                </p>
+                            <div className="space-y-3 text-sm text-slate-300">
+                                <p><strong className="text-white">Experiencia personal:</strong> La idea surgió de observar las dificultades de mi padre, un taxista con más de 20 años de experiencia.</p>
+                                <p><strong className="text-white">Problema identificado:</strong> Las aplicaciones existentes no son intuitivas ni simplifican las tareas diarias.</p>
+                                <p><strong className="text-white">Solución móvil:</strong> Versión nativa optimizada para dispositivos móviles con mejor experiencia de usuario.</p>
                             </div>
                         </div>
-
-                        <div className="bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-lg sm:rounded-xl p-4 sm:p-6 border border-yellow-500/30">
-                            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Características Principales</h4>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-sm">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                    <span className="text-gray-300">React Native</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                    <span className="text-gray-300">Mobile First</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                    <span className="text-gray-300">APIs REST</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                    <span className="text-gray-300">Tiempo Real</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                    <span className="text-gray-300">GPS & Maps</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                                    <span className="text-gray-300">Notificaciones</span>
-                                </div>
+                        <div className="bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-lg p-6 border border-yellow-500/30">
+                            <h4 className="text-base font-semibold text-white mb-3">Características</h4>
+                            <div className="grid grid-cols-2 gap-2 text-sm">
+                                {["React Native", "Mobile First", "APIs REST", "Tiempo Real", "GPS & Maps", "Notificaciones"].map((f, idx) => (
+                                    <div key={idx} className="flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
+                                        <span className="text-slate-300">{f}</span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </section>
 
                 {/* Demo Video */}
-                <section className="bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/10 mb-8 sm:mb-12">
-                    <div className="text-center mb-6 sm:mb-8">
-                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Demo de la Aplicación</h3>
-                        <p className="text-sm sm:text-base text-gray-300">
-                            Video demostrativo de las funcionalidades principales de la aplicación móvil TaxiDay.
-                        </p>
-                    </div>
-                    
+                <section className="card p-8 mb-12">
+                    <h3 className="text-xl font-bold text-white mb-4 text-center">Demo de la Aplicación</h3>
                     <div className="max-w-4xl mx-auto">
-                        <video 
-                            className="w-full rounded-lg shadow-lg"
-                            controls
-                            preload="metadata"
-                        >
+                        <video className="w-full rounded-lg" controls preload="metadata">
                             <source src="/projects/taxiday_mobile/DemoTaxiDayMobile.mp4" type="video/mp4" />
-                            Tu navegador no soporta el elemento de video.
                         </video>
                     </div>
                 </section>
 
                 {/* Technical Details */}
-                <section className="bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/10 mb-8 sm:mb-12">
-                    <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
-                        <div>
-                            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Tecnologías Utilizadas</h3>
-                            <div className="space-y-3 sm:space-y-4">
-                                <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg p-4 border border-blue-500/20">
-                                    <h4 className="text-lg font-semibold text-white mb-2">Frontend Mobile</h4>
-                                    <div className="flex flex-wrap gap-2">
-                                        {["React Native", "JavaScript", "ES6+", "React Navigation", "AsyncStorage"].map((tech, index) => (
-                                            <span key={index} className="text-xs bg-blue-500/20 text-white px-2 py-1 rounded-full">
-                                                {tech}
-                                            </span>
-                                        ))}
-                                    </div>
+                <section className="mb-12">
+                    <h3 className="text-2xl font-bold text-white text-center mb-6">Tecnologías y Características</h3>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[
+                            { icon: "⚡", title: "Arquitectura", desc: "Modular con componentes reutilizables y separación de responsabilidades" },
+                            { icon: "📱", title: "UX/UI", desc: "Diseño centrado en el usuario con navegación intuitiva" },
+                            { icon: "🚀", title: "Performance", desc: "Optimización con lazy loading y gestión eficiente de memoria" },
+                            { icon: "🔒", title: "Seguridad", desc: "Autenticación segura y encriptación de datos sensibles" },
+                            { icon: "🎯", title: "Frontend Mobile", desc: "React Native, JavaScript ES6+, React Navigation" },
+                            { icon: "🌐", title: "APIs", desc: "REST APIs, WebSockets, Push Notifications" }
+                        ].map((f, idx) => (
+                            <div key={idx} className="card p-6">
+                                <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-3">
+                                    <span className="text-xl">{f.icon}</span>
                                 </div>
-                                
-                                <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-lg p-4 border border-green-500/20">
-                                    <h4 className="text-lg font-semibold text-white mb-2">APIs y Servicios</h4>
-                                    <div className="flex flex-wrap gap-2">
-                                        {["REST APIs", "HTTP/HTTPS", "JSON", "WebSockets", "Push Notifications"].map((tech, index) => (
-                                            <span key={index} className="text-xs bg-green-500/20 text-white px-2 py-1 rounded-full">
-                                                {tech}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                                
-                                <div className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-lg p-4 border border-yellow-500/20">
-                                    <h4 className="text-lg font-semibold text-white mb-2">Funcionalidades</h4>
-                                    <div className="flex flex-wrap gap-2">
-                                        {["GPS Tracking", "Maps Integration", "Real-time Updates", "User Authentication", "Offline Support"].map((tech, index) => (
-                                            <span key={index} className="text-xs bg-yellow-500/20 text-white px-2 py-1 rounded-full">
-                                                {tech}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
+                                <h4 className="text-base font-semibold text-white mb-2">{f.title}</h4>
+                                <p className="text-sm text-slate-300">{f.desc}</p>
                             </div>
-                        </div>
-
-                        <div>
-                            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Características Técnicas</h3>
-                            <div className="space-y-4">
-                                <div className="bg-white/5 rounded-lg p-4 border border-white/10">
-                                    <h4 className="text-lg font-semibold text-white mb-2">🎯 Arquitectura</h4>
-                                    <p className="text-sm text-gray-300">
-                                        Arquitectura modular con componentes reutilizables, separación clara de responsabilidades 
-                                        y patrones de diseño optimizados para aplicaciones móviles.
-                                    </p>
-                                </div>
-                                
-                                <div className="bg-white/5 rounded-lg p-4 border border-white/10">
-                                    <h4 className="text-lg font-semibold text-white mb-2">📱 UX/UI</h4>
-                                    <p className="text-sm text-gray-300">
-                                        Diseño centrado en el usuario con navegación intuitiva, feedback visual inmediato 
-                                        y adaptación a diferentes tamaños de pantalla.
-                                    </p>
-                                </div>
-                                
-                                <div className="bg-white/5 rounded-lg p-4 border border-white/10">
-                                    <h4 className="text-lg font-semibold text-white mb-2">⚡ Performance</h4>
-                                    <p className="text-sm text-gray-300">
-                                        Optimización de rendimiento con lazy loading, gestión eficiente de memoria 
-                                        y actualizaciones incrementales para una experiencia fluida.
-                                    </p>
-                                </div>
-                                
-                                <div className="bg-white/5 rounded-lg p-4 border border-white/10">
-                                    <h4 className="text-lg font-semibold text-white mb-2">🔒 Seguridad</h4>
-                                    <p className="text-sm text-gray-300">
-                                        Implementación de autenticación segura, encriptación de datos sensibles 
-                                        y validación robusta de entrada de usuario.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </section>
 
                 {/* Documentation */}
-                <section className="bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/10 mb-8 sm:mb-12">
-                    <div className="text-center">
-                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Documentación del Proyecto</h3>
-                        <p className="text-sm sm:text-base text-gray-300 mb-6 sm:mb-8">
-                            Presentación completa con detalles técnicos, arquitectura y decisiones de diseño del proyecto.
-                        </p>
-                        
-                        <div className="flex justify-center">
-                            <a 
-                                href="/projects/taxiday_mobile/009_PMYDM_Membrive_Martinez_JoseCarlos.pptx"
-                                download
-                                className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base"
-                            >
-                                <span>📄</span>
-                                Descargar Documentación
-                            </a>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Development Process */}
-                <section className="bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/10">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 text-center">Proceso de Desarrollo</h3>
-                    
-                    <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-                        <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg p-4 border border-blue-500/20 text-center">
-                            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                                <span className="text-2xl sm:text-3xl">📋</span>
-                            </div>
-                            <h4 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">Análisis y Planificación</h4>
-                            <p className="text-xs sm:text-sm text-gray-300">
-                                Estudio de requisitos, definición de arquitectura y planificación del desarrollo móvil.
-                            </p>
-                        </div>
-
-                        <div className="bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-lg p-4 border border-green-500/20 text-center">
-                            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                                <span className="text-2xl sm:text-3xl">💻</span>
-                            </div>
-                            <h4 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">Desarrollo</h4>
-                            <p className="text-xs sm:text-sm text-gray-300">
-                                Implementación con React Native, integración de APIs y desarrollo de funcionalidades móviles.
-                            </p>
-                        </div>
-
-                        <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 rounded-lg p-4 border border-yellow-500/20 text-center">
-                            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                                <span className="text-2xl sm:text-3xl">🚀</span>
-                            </div>
-                            <h4 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">Testing y Despliegue</h4>
-                            <p className="text-xs sm:text-sm text-gray-300">
-                                Pruebas exhaustivas en dispositivos móviles y optimización para producción.
-                            </p>
-                        </div>
-                    </div>
+                <section className="text-center">
+                    <a 
+                        href="/projects/taxiday_mobile/009_PMYDM_Membrive_Martinez_JoseCarlos.pptx"
+                        download
+                        className="btn-primary inline-flex items-center gap-2"
+                    >
+                        <span>📄</span>
+                        Descargar Documentación
+                    </a>
                 </section>
             </main>
         </div>
     );
-} 
+}

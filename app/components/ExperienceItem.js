@@ -1,8 +1,7 @@
 import Image from "next/image";
 
 /**
- * ExperienceItem component
- * Displays a single work experience block with image, title, description and technologies
+ * ExperienceItem component - Diseño profesional compacto
  */
 export default function ExperienceItem({ experience }) {
     const {
@@ -16,10 +15,10 @@ export default function ExperienceItem({ experience }) {
     } = experience;
 
     return (
-        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 rounded-2xl p-6 border border-cyan-500/20 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 hover:scale-105 h-full">
-            {/* Company/Job image */}
-            <div className="flex items-center mb-6">
-                <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-cyan-500/30 mr-4">
+        <div className="card p-6 h-full">
+            {/* Header */}
+            <div className="flex items-start gap-4 mb-4">
+                <div className="relative w-14 h-14 rounded-lg overflow-hidden border border-cyan-600/30 flex-shrink-0">
                     <Image
                         src={image}
                         alt={`${company} logo`}
@@ -27,9 +26,9 @@ export default function ExperienceItem({ experience }) {
                         className={company === "CodeArts Solutions" ? "object-cover" : "object-contain p-2"}
                     />
                 </div>
-                <div>
-                    <h3 className="text-xl font-bold text-white">{title}</h3>
-                    <p className="text-lg text-gray-300">{company}</p>
+                <div className="flex-1">
+                    <h3 className="text-lg font-bold text-white">{title}</h3>
+                    <p className="text-base text-slate-300">{company}</p>
                     <p className="text-sm text-cyan-400 font-semibold">
                         {period}
                     </p>
@@ -37,37 +36,37 @@ export default function ExperienceItem({ experience }) {
             </div>
 
             {/* Description */}
-            <p className="mb-6 text-base text-gray-300 leading-relaxed">
+            <p className="mb-4 text-sm text-slate-300 leading-relaxed">
                 {description}
             </p>
 
             {/* Projects list */}
             {projects && projects.length > 0 && (
-                <div className="mb-6">
-                    <h4 className="text-sm font-semibold mb-3 text-white">
+                <div className="mb-4">
+                    <h4 className="text-sm font-semibold mb-2 text-white">
                         Experiencias aprendidas:
                     </h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5">
                         {projects.map((project, index) => (
-                            <li key={index} className="flex items-start">
-                                <span className="text-cyan-400 mr-2 mt-1">•</span>
-                                <span className="text-base text-gray-300">{project}</span>
+                            <li key={index} className="flex items-start text-sm">
+                                <span className="text-cyan-400 mr-2 flex-shrink-0">•</span>
+                                <span className="text-slate-300">{project}</span>
                             </li>
                         ))}
                     </ul>
                 </div>
             )}
 
-            {/* Technologies list */}
+            {/* Technologies */}
             <div>
-                <h4 className="text-sm font-semibold mb-3 text-white">
+                <h4 className="text-sm font-semibold mb-2 text-white">
                     Tecnologías utilizadas:
                 </h4>
                 <div className="flex flex-wrap gap-2">
                     {technologies.map((tech, index) => (
                         <span
                             key={index}
-                            className="bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-white px-3 py-1 rounded-full border border-cyan-500/30 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 text-xs font-medium"
+                            className="text-xs bg-cyan-600/10 text-cyan-400 px-2.5 py-1 rounded-md border border-cyan-600/30 hover:border-cyan-600/60 hover:bg-cyan-600/20 transition-all"
                         >
                             {tech}
                         </span>
