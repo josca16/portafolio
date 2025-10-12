@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import YouTubeEmbed from "./YouTubeEmbed";
 
 /**
  * PadelGallery - Carrusel dinámico con video funcional
  */
 export default function PadelGallery() {
-    const [playingVideo, setPlayingVideo] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const padelContent = [
@@ -46,17 +46,14 @@ export default function PadelGallery() {
 
     const nextItem = () => {
         setCurrentIndex((prev) => (prev + 1) % padelContent.length);
-        setPlayingVideo(false);
     };
 
     const prevItem = () => {
         setCurrentIndex((prev) => (prev - 1 + padelContent.length) % padelContent.length);
-        setPlayingVideo(false);
     };
 
     const goToItem = (index) => {
         setCurrentIndex(index);
-        setPlayingVideo(false);
     };
 
     // Calcular índices para mostrar elementos laterales
@@ -177,66 +174,22 @@ export default function PadelGallery() {
                         </div>
                 </div>
                 
-                    {/* Video - Lado Derecho */}
+                    {/* Video de YouTube - Lado Derecho */}
                     <div className="flex-1 max-w-xs">
                         <div className="relative group">
-                            {/* Contenedor del video sin bordes fijos */}
-                            <div className="relative overflow-hidden rounded-2xl shadow-xl">
-                                {!playingVideo ? (
-                                    <div 
-                                        className="relative cursor-pointer group/video bg-slate-900/50 backdrop-blur-sm"
-                                        onClick={() => setPlayingVideo(true)}
-                                    >
-                                        <video 
-                                            className="w-full h-auto max-h-[350px] object-cover transition-all duration-500 group-hover/video:scale-105"
-                                            muted
-                                            playsInline
-                                            preload="metadata"
-                                        >
-                                            <source src="/padel/padel-video.mp4" type="video/mp4" />
-                                        </video>
-                                        
-                                        {/* Overlay elegante */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent group-hover/video:from-black/60 transition-all duration-500">
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                                <div className="w-16 h-16 bg-gradient-to-r from-cyan-500/90 to-blue-500/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-2xl group-hover/video:shadow-cyan-400/50 group-hover/video:rotate-12 border-2 border-white/20">
-                                                    <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                                                <path d="M8 5v14l11-7z"/>
-                                                            </svg>
-                                                </div>
-                                            </div>
-                                            
-                                            {/* Indicador sutil en la esquina */}
-                                            <div className="absolute top-3 right-3 w-6 h-6 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                                                <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M17,10.5V7A1,1 0 0,0 16,6H4A1,1 0 0,0 3,7V17A1,1 0 0,0 4,18H16A1,1 0 0,0 17,17V13.5L21,17.5V6.5L17,10.5Z" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        
-                                        {/* Efecto de brillo sutil */}
-                                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/5 to-blue-500/0 opacity-0 group-hover/video:opacity-100 transition-opacity duration-500"></div>
-                                    </div>
-                                ) : (
-                                    <video 
-                                        controls 
-                                        autoPlay 
-                                        muted
-                                        playsInline
-                                        className="w-full h-auto max-h-[350px] object-cover"
-                                        onEnded={() => setPlayingVideo(false)}
-                                        onPause={() => setPlayingVideo(false)}
-                                    >
-                                        <source src="/padel/padel-video.mp4" type="video/mp4" />
-                                        Tu navegador no soporta el elemento video.
-                                    </video>
-                                )}
-                                </div>
-                            
                             {/* Efectos de fondo sutiles */}
                             <div className="absolute -inset-2 opacity-20 pointer-events-none">
-                                <div className="absolute top-2 right-2 w-16 h-16 bg-cyan-500 rounded-full blur-xl animate-pulse"></div>
-                                <div className="absolute bottom-2 left-2 w-12 h-12 bg-blue-500 rounded-full blur-lg animate-pulse delay-1000"></div>
+                                <div className="absolute top-2 right-2 w-16 h-16 bg-red-500 rounded-full blur-xl animate-pulse"></div>
+                                <div className="absolute bottom-2 left-2 w-12 h-12 bg-red-600 rounded-full blur-lg animate-pulse delay-1000"></div>
+                            </div>
+                            
+                            <div className="relative overflow-hidden rounded-2xl shadow-xl border-2 border-red-500/30 hover:border-red-400/50 transition-all duration-500">
+                                <YouTubeEmbed 
+                                    videoId="3CVBLGhNh58"
+                                    title="Video de Pádel"
+                                    showCustomThumbnail={false}
+                                    aspectRatio="9/16"
+                                />
                             </div>
                         </div>
                     </div>
