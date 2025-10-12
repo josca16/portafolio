@@ -10,103 +10,52 @@
 
 ## ⏳ Videos Pendientes
 
+**TODAS las páginas de proyectos ahora usan YouTubeEmbed y mostrarán un mensaje de "pendiente" hasta que subas los videos.**
+
 Necesitas subir estos 6 videos a YouTube y actualizar los IDs:
 
 ### 1. TaxiDay Demo (`/public/projects/taxiday/demo.mp4`)
 - **Tamaño:** 62 MB
-- **Archivo a actualizar:** `app/page.js` (línea ~95)
-- **Código actual:**
-  ```javascript
-  {
-      title: "TaxiDay Web",
-      description: "Sistema de gestión de taxis con mapas y rutas en tiempo real",
-      videoSrc: "/projects/taxiday/demo.mp4",  // ← Reemplazar
-      thumbnailSrc: "/projects/taxiday/dashboard.png"
-  }
-  ```
-- **Cambiar a:**
-  ```javascript
-  {
-      title: "TaxiDay Web",
-      description: "Sistema de gestión de taxis con mapas y rutas en tiempo real",
-      youtubeId: "TU_ID_AQUI",  // ← Poner tu ID de YouTube
-      thumbnailSrc: "/projects/taxiday/dashboard.png"
-  }
-  ```
+- **Archivo:** `app/projects/taxiday/page.js` (línea ~96)
+- **Buscar:** `videoId="PENDIENTE_SUBIR_A_YOUTUBE"`
+- **Reemplazar por:** `videoId="TU_ID_DE_YOUTUBE"`
 
 ---
 
 ### 2. TaxiDay Mobile Demo (`/public/projects/taxiday_mobile/DemoTaxiDayMobile.mp4`)
 - **Tamaño:** 62 MB
-- **Archivo a actualizar:** `app/page.js` (línea ~101)
-- **Código actual:**
-  ```javascript
-  {
-      title: "TaxiDay Mobile",
-      description: "App móvil para gestión de pedidos en tiempo real",
-      videoSrc: "/projects/taxiday_mobile/DemoTaxiDayMobile.mp4",  // ← Reemplazar
-      thumbnailSrc: "/projects/taxiday_mobile/009_PMYDM_Membrive_Martinez_JoseCarlos.pptx"
-  }
-  ```
-- **Cambiar a:**
-  ```javascript
-  {
-      title: "TaxiDay Mobile",
-      description: "App móvil para gestión de pedidos en tiempo real",
-      youtubeId: "TU_ID_AQUI",  // ← Poner tu ID de YouTube
-      thumbnailSrc: null
-  }
-  ```
+- **Archivo:** `app/projects/taxiday-mobile/page.js` (línea ~73)
+- **Buscar:** `videoId="PENDIENTE_SUBIR_A_YOUTUBE"`
+- **Reemplazar por:** `videoId="TU_ID_DE_YOUTUBE"`
 
 ---
 
 ### 3. CAFD Video (`/public/projects/cafd/VideoCAFD.mp4`)
 - **Tamaño:** 62 MB
-- **Archivos a actualizar:**
-  - `app/page.js` (línea ~107)
-  - `app/projects/cafd/page.js` (línea ~135)
-
-#### En `app/page.js`:
-```javascript
-{
-    title: "CAFD",
-    description: "Aplicación de gestión para centros de alto rendimiento deportivo",
-    youtubeId: "TU_ID_AQUI",  // ← Poner tu ID de YouTube
-    thumbnailSrc: "/projects/cafd/CapturaCAFDinicio.png"
-}
-```
-
-#### En `app/projects/cafd/page.js`:
-```javascript
-// Buscar la sección del video (línea ~134) y reemplazar por:
-<div className="aspect-video bg-slate-800 rounded-lg overflow-hidden">
-    <iframe
-        className="w-full h-full"
-        src="https://www.youtube.com/embed/TU_ID_AQUI"
-        title="Demo CAFD"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-    />
-</div>
-```
+- **Archivo:** `app/projects/cafd/page.js` (línea ~136)
+- **Buscar:** `videoId="PENDIENTE_SUBIR_A_YOUTUBE"`
+- **Reemplazar por:** `videoId="TU_ID_DE_YOUTUBE"`
 
 ---
 
-### 4. Unity - ToniBird (`/public/projects/videojuegos-unity/DemoToniBird.mp4`)
-- **Archivos a actualizar:**
-  - `app/page.js` (línea ~113)
-  - `app/projects/videojuegos-unity/page.js` (línea ~89)
+### 4. Unity - RollABall (`/public/projects/videojuegos-unity/DemoRollABall.mp4`)
+- **Archivo:** `app/projects/videojuegos-unity/page.js` (línea ~56)
+- **Buscar:** `videoId="PENDIENTE_SUBIR_A_YOUTUBE"`
+- **Reemplazar por:** `videoId="TU_ID_DE_YOUTUBE"`
 
 ---
 
-### 5. Unity - RollABall (`/public/projects/videojuegos-unity/DemoRollABall.mp4`)
-- **Archivo a actualizar:** `app/projects/videojuegos-unity/page.js` (línea ~55)
+### 5. Unity - ToniBird (`/public/projects/videojuegos-unity/DemoToniBird.mp4`)
+- **Archivo:** `app/projects/videojuegos-unity/page.js` (línea ~96)
+- **Buscar:** `videoId="PENDIENTE_SUBIR_A_YOUTUBE"`
+- **Reemplazar por:** `videoId="TU_ID_DE_YOUTUBE"`
 
 ---
 
 ### 6. Unity - GeoBattle (`/public/projects/videojuegos-unity/DemoGeoBattle.mp4`)
-- **Archivo a actualizar:** `app/projects/videojuegos-unity/page.js` (línea ~125)
+- **Archivo:** `app/projects/videojuegos-unity/page.js` (línea ~138)
+- **Buscar:** `videoId="PENDIENTE_SUBIR_A_YOUTUBE"`
+- **Reemplazar por:** `videoId="TU_ID_DE_YOUTUBE"`
 
 ---
 
