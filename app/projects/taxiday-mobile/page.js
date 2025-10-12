@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import YouTubeEmbed from "../../components/YouTubeEmbed";
 
 export default function TaxiDayMobilePage() {
     return (
@@ -68,9 +69,15 @@ export default function TaxiDayMobilePage() {
                 <section className="card p-8 mb-12">
                     <h3 className="text-xl font-bold text-white mb-4 text-center">Demo de la Aplicación</h3>
                     <div className="max-w-4xl mx-auto">
-                        <video className="w-full rounded-lg" controls preload="metadata">
-                            <source src="/projects/taxiday_mobile/DemoTaxiDayMobile.mp4" type="video/mp4" />
-                        </video>
+                        <YouTubeEmbed 
+                            videoId="PENDIENTE_SUBIR_A_YOUTUBE"
+                            title="Demo TaxiDay Mobile"
+                            showCustomThumbnail={false}
+                            aspectRatio="16/9"
+                        />
+                        <p className="text-xs text-yellow-400 text-center mt-3">
+                            ⚠️ Video pendiente de subir a YouTube
+                        </p>
                     </div>
                 </section>
 

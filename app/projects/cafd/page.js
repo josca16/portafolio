@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import YouTubeEmbed from "../../components/YouTubeEmbed";
 
 export default function CAFDPage() {
     return (
@@ -131,13 +132,18 @@ export default function CAFDPage() {
                     </h3>
                     <div className="card p-6">
                         <div className="rounded-lg overflow-hidden border border-yellow-500/30 mb-4">
-                            <video className="w-full" controls preload="metadata">
-                                <source src="/projects/cafd/VideoCAFD.mp4" type="video/mp4" />
-                                Tu navegador no soporta el elemento de video.
-                            </video>
+                            <YouTubeEmbed 
+                                videoId="PENDIENTE_SUBIR_A_YOUTUBE"
+                                title="Demo CAFD"
+                                showCustomThumbnail={false}
+                                aspectRatio="16/9"
+                            />
                         </div>
                         <p className="text-sm text-slate-300 text-center">
                             Demostración completa del sitio web de CAFD, incluyendo la navegación por todas las secciones
+                        </p>
+                        <p className="text-xs text-yellow-400 text-center mt-2">
+                            ⚠️ Video pendiente de subir a YouTube
                         </p>
                     </div>
                 </section>

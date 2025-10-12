@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import YouTubeEmbed from "../../components/YouTubeEmbed";
 
 export default function UnityGamesPage() {
     return (
@@ -51,9 +52,15 @@ export default function UnityGamesPage() {
                                     <p><strong className="text-white">Mecánicas:</strong> Control de una bola, recolección de monedas y plataforma final.</p>
                                     <p><strong className="text-white">Aprendizajes:</strong> Input del usuario, colisiones y navegación 3D básica.</p>
                                 </div>
-                                <video className="w-full rounded-lg" controls preload="metadata">
-                                    <source src="/projects/videojuegos-unity/DemoRollABall.mp4" type="video/mp4" />
-                                </video>
+                                <YouTubeEmbed 
+                                    videoId="PENDIENTE_SUBIR_A_YOUTUBE"
+                                    title="Demo Roll a Ball"
+                                    showCustomThumbnail={false}
+                                    aspectRatio="16/9"
+                                />
+                                <p className="text-xs text-yellow-400 text-center mt-2">
+                                    ⚠️ Video pendiente de subir a YouTube
+                                </p>
                             </div>
                             <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg p-6 border border-blue-500/30">
                                 <h4 className="text-base font-semibold text-white mb-3">Tecnologías</h4>
@@ -85,9 +92,15 @@ export default function UnityGamesPage() {
                                     <p><strong className="text-white">Características:</strong> Menú principal, sistema de puntuación y mecánicas clásicas.</p>
                                 </div>
                                 <div className="space-y-4">
-                                    <video className="w-full rounded-lg" controls preload="metadata">
-                                        <source src="/projects/videojuegos-unity/DemoToniBird.mp4" type="video/mp4" />
-                                    </video>
+                                    <YouTubeEmbed 
+                                        videoId="PENDIENTE_SUBIR_A_YOUTUBE"
+                                        title="Demo TonyBird"
+                                        showCustomThumbnail={false}
+                                        aspectRatio="16/9"
+                                    />
+                                    <p className="text-xs text-yellow-400 text-center">
+                                        ⚠️ Video pendiente de subir a YouTube
+                                    </p>
                                     <Image src="/projects/videojuegos-unity/CapturaToniBirds.JPG" alt="TonyBird" width={600} height={400} className="w-full rounded-lg" />
                                 </div>
                             </div>
@@ -121,9 +134,15 @@ export default function UnityGamesPage() {
                                     <p><strong className="text-white">Boss final:</strong> Fase especial con enemigo de mayor dificultad.</p>
                                 </div>
                                 <div className="space-y-4">
-                                    <video className="w-full rounded-lg" controls preload="metadata">
-                                        <source src="/projects/videojuegos-unity/DemoGeoBattle.mp4" type="video/mp4" />
-                                    </video>
+                                    <YouTubeEmbed 
+                                        videoId="PENDIENTE_SUBIR_A_YOUTUBE"
+                                        title="Demo GeoBattle"
+                                        showCustomThumbnail={false}
+                                        aspectRatio="16/9"
+                                    />
+                                    <p className="text-xs text-yellow-400 text-center">
+                                        ⚠️ Video pendiente de subir a YouTube
+                                    </p>
                                     <a 
                                         href="/projects/videojuegos-unity/004_PMYDM_Membrive_Martinez_JoseCarlos.pptx"
                                         download

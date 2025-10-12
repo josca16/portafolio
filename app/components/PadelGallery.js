@@ -103,18 +103,25 @@ export default function PadelGallery() {
                                     
                                     const isHorizontal = item.isHorizontal;
                                     
+                                    // Mejorar proporciones para que se vean más naturales
                                     let containerWidth, containerHeight;
                                     if (isActive) {
                                         if (isHorizontal) {
-                                            containerWidth = '320px';
-                                            containerHeight = '200px';
+                                            containerWidth = '400px';
+                                            containerHeight = '250px';
                                         } else {
-                                            containerWidth = '240px';
-                                            containerHeight = '300px';
+                                            containerWidth = '280px';
+                                            containerHeight = '380px';
                                         }
                                     } else {
-                                        containerWidth = '120px';
-                                        containerHeight = '150px';
+                                        // Thumbnails más pequeños con mejor proporción
+                                        if (isHorizontal) {
+                                            containerWidth = '140px';
+                                            containerHeight = '90px';
+                                        } else {
+                                            containerWidth = '100px';
+                                            containerHeight = '130px';
+                                        }
                                     }
                                     
                                     return (
@@ -139,9 +146,7 @@ export default function PadelGallery() {
                                                     src={item.image}
                                                     alt="Foto de pádel"
                                                     fill
-                                                    className={`transition-all duration-700 hover:scale-110 ${
-                                                        isHorizontal ? 'object-contain' : 'object-cover'
-                                                    }`}
+                                                    className="object-cover transition-all duration-700 hover:scale-110"
                                                 />
                                                 
                                                 {/* Borde animado para el elemento activo */}
