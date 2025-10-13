@@ -75,7 +75,12 @@ export default function PadelGallery() {
                         Galería de Momentos
                     </span>
                 </h2>
-                <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+                {/* Versión móvil - sin texto */}
+                <p className="text-slate-400 text-lg max-w-2xl mx-auto md:hidden">
+                    {/* Texto oculto en móvil */}
+                </p>
+                {/* Versión desktop - completa */}
+                <p className="text-slate-400 text-lg max-w-2xl mx-auto hidden md:block">
                     Momentos únicos que definen mi pasión por el pádel y mi estilo de vida
                 </p>
             </div>

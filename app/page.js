@@ -286,7 +286,12 @@ function cafd_preprocess_node(&$variables) {
                                     Sobre mí
                                 </span>
                             </h2>
-                            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                            {/* Versión móvil - más concisa */}
+                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
+                                Mi perfil profesional como desarrollador
+                            </p>
+                            {/* Versión desktop - completa */}
+                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
                                 Conoce mi perfil profesional y las habilidades que me definen como desarrollador
                             </p>
                             <div className="mt-6 flex justify-center gap-4 flex-wrap">
@@ -311,7 +316,12 @@ function cafd_preprocess_node(&$variables) {
                                         <span className="text-white text-2xl">💻</span>
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Desarrollador Multiplataforma</h3>
-                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                    {/* Versión móvil - más concisa */}
+                                    <p className="text-sm text-slate-300 leading-relaxed md:hidden">
+                                        Desarrollador con experiencia profesional en <strong className="text-cyan-400">Codearts</strong>.
+                                    </p>
+                                    {/* Versión desktop - completa */}
+                                    <p className="text-sm text-slate-300 leading-relaxed hidden md:block">
                                         Programador junior titulado en <strong className="text-cyan-400">Desarrollo de Aplicaciones Multiplataforma</strong>, 
                                         con experiencia en entorno profesional tras mis prácticas en <strong className="text-cyan-400">Codearts</strong>.
                                     </p>
@@ -326,7 +336,12 @@ function cafd_preprocess_node(&$variables) {
                                         <span className="text-white text-2xl">⚙️</span>
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Enfoque Metódico</h3>
-                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                    {/* Versión móvil - más concisa */}
+                                    <p className="text-sm text-slate-300 leading-relaxed md:hidden">
+                                        Enfoque <strong className="text-blue-400">meticuloso y estructurado</strong> en cada proyecto.
+                                    </p>
+                                    {/* Versión desktop - completa */}
+                                    <p className="text-sm text-slate-300 leading-relaxed hidden md:block">
                                         Me distingo por un enfoque <strong className="text-blue-400">meticuloso y estructurado</strong>, 
                                         con especial atención al orden, la lógica y el análisis de cada proceso.
                                     </p>
@@ -341,7 +356,12 @@ function cafd_preprocess_node(&$variables) {
                                         <span className="text-white text-2xl">🚀</span>
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Soluciones Efectivas</h3>
-                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                    {/* Versión móvil - más concisa */}
+                                    <p className="text-sm text-slate-300 leading-relaxed md:hidden">
+                                        <strong className="text-purple-400">Soluciones eficaces y estables</strong> para cada desafío.
+                                    </p>
+                                    {/* Versión desktop - completa */}
+                                    <p className="text-sm text-slate-300 leading-relaxed hidden md:block">
                                         Busco comprender a fondo las tecnologías con las que trabajo para aportar 
                                         <strong className="text-purple-400">soluciones eficaces, estables y con sentido</strong>.
                                     </p>
@@ -356,7 +376,12 @@ function cafd_preprocess_node(&$variables) {
                                         <span className="text-white text-2xl">🛡️</span>
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Trabajo Colaborativo</h3>
-                                    <p className="text-sm text-slate-300 leading-relaxed">
+                                    {/* Versión móvil - más concisa */}
+                                    <p className="text-sm text-slate-300 leading-relaxed md:hidden">
+                                        <strong className="text-green-400">Colaboración efectiva</strong> y aprendizaje continuo.
+                                    </p>
+                                    {/* Versión desktop - completa */}
+                                    <p className="text-sm text-slate-300 leading-relaxed hidden md:block">
                                         Disfruto aprendiendo de otros y <strong className="text-green-400">sumando claridad en entornos colaborativos</strong>, 
                                         siempre buscando mejorar y crecer profesionalmente.
                                     </p>
@@ -391,7 +416,12 @@ function cafd_preprocess_node(&$variables) {
                                     Habilidades
                                 </span>
                             </h2>
-                            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                            {/* Versión móvil - más concisa */}
+                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
+                                Tecnologías que domino
+                            </p>
+                            {/* Versión desktop - completa */}
+                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
                                 Tecnologías y competencias que domino para crear soluciones innovadoras
                             </p>
                             <div className="mt-6 flex justify-center gap-4 flex-wrap">
@@ -411,7 +441,23 @@ function cafd_preprocess_node(&$variables) {
                         </div>
                     </ScrollReveal>
                     
-                    <div className="section-grid-2">
+                    {/* Versión móvil - Habilidades compactas */}
+                    <div className="md:hidden mb-8">
+                        <ScrollReveal animation="fade-up" delay={100}>
+                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-6">
+                                <h3 className="text-xl font-bold text-white mb-4 text-center">Habilidades Técnicas</h3>
+                                <div className="flex flex-wrap gap-2 justify-center">
+                                    {["Java", "JavaScript", "Python", "React", "Spring Boot", "Node.js", "Docker", "AWS", "MySQL", "Git"].map((skill, index) => (
+                                        <span key={index} className="px-3 py-1 text-sm bg-slate-700/50 text-slate-300 rounded-lg border border-slate-600/30">
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </ScrollReveal>
+                    </div>
+
+                    <div className="section-grid-2 hidden md:grid">
                         {/* Habilidades Técnicas */}
                         <ScrollReveal animation="fade-left" delay={100}>
                             <div className="relative group h-full">
@@ -579,7 +625,12 @@ function cafd_preprocess_node(&$variables) {
                                     Mis Proyectos
                                 </span>
                             </h2>
-                            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                            {/* Versión móvil - más concisa */}
+                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
+                                Mis proyectos desarrollados
+                            </p>
+                            {/* Versión desktop - completa */}
+                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
                                 Explora mi portfolio de proyectos desarrollados con las últimas tecnologías
                             </p>
                             <div className="mt-6 flex justify-center gap-4 flex-wrap">
@@ -613,8 +664,8 @@ function cafd_preprocess_node(&$variables) {
                         })}
                     </div>
 
-                    {/* Sección de Demos con Código */}
-                    <ScrollReveal animation="fade-up" delay={400}>
+                    {/* Sección de Demos con Código - Oculto en móvil */}
+                    <ScrollReveal animation="fade-up" delay={400} className="hidden md:block">
                         <div className="text-center mb-8 mt-16">
                             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                                 <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
@@ -669,7 +720,12 @@ function cafd_preprocess_node(&$variables) {
                                     Experiencia Laboral
                                 </span>
                             </h2>
-                            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                            {/* Versión móvil - más concisa */}
+                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
+                                Mi trayectoria profesional
+                            </p>
+                            {/* Versión desktop - completa */}
+                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
                                 Mi trayectoria profesional y académica que me ha llevado hasta aquí
                             </p>
                             <div className="mt-6 flex justify-center gap-4 flex-wrap">
@@ -685,7 +741,38 @@ function cafd_preprocess_node(&$variables) {
                         </div>
                     </ScrollReveal>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {/* Versión móvil - Experiencia compacta */}
+                    <div className="md:hidden mb-8">
+                        <ScrollReveal animation="fade-up" delay={100}>
+                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-6">
+                                <h3 className="text-xl font-bold text-white mb-4 text-center">Mi Experiencia</h3>
+                                <div className="space-y-4">
+                                    <div className="flex items-start gap-3 p-3 bg-slate-700/30 rounded-lg">
+                                        <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <span className="text-white text-sm font-bold">CS</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-sm font-bold text-white">CodeArts Solutions</h4>
+                                            <p className="text-xs text-slate-400">Desarrollador en Prácticas</p>
+                                            <p className="text-xs text-slate-300 mt-1">Desarrollo web con Drupal y PHP</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start gap-3 p-3 bg-slate-700/30 rounded-lg">
+                                        <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <span className="text-white text-sm font-bold">UVA</span>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-sm font-bold text-white">Universidad de Valladolid</h4>
+                                            <p className="text-xs text-slate-400">Grado Superior DAM</p>
+                                            <p className="text-xs text-slate-300 mt-1">Desarrollo de Aplicaciones Multiplataforma</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ScrollReveal>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 hidden md:grid">
                         {experiences.map((experience, index) => (
                             <ScrollReveal key={index} animation="fade-up" delay={index * 100}>
                                 <ExperienceItem experience={experience} />
@@ -718,9 +805,14 @@ function cafd_preprocess_node(&$variables) {
                                     Certificaciones Profesionales
                             </span>
                             </h2>
-                            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                            {/* Versión móvil - más concisa */}
+                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
+                                Mis certificaciones técnicas
+                            </p>
+                            {/* Versión desktop - completa */}
+                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
                                 Mi compromiso con el aprendizaje continuo se refleja en estas certificaciones oficiales que respaldan mi experiencia técnica
-                        </p>
+                            </p>
                             <div className="mt-6 flex justify-center gap-4 flex-wrap">
                                 <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-cyan-500/30">
                                     <span className="text-2xl">📜</span>
@@ -751,7 +843,22 @@ function cafd_preprocess_node(&$variables) {
                                 </div>
                             </div>
                             
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {/* Versión móvil - Lista compacta */}
+                            <div className="md:hidden mb-8">
+                                <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-6">
+                                    <h3 className="text-xl font-bold text-white mb-4 text-center">Mis Certificaciones</h3>
+                                    <div className="space-y-3">
+                                        {["🐍 Python Development", "🌐 PHP Web Development", "📊 Odoo ERP", "🔧 Git Professional", "🤖 IA Generativa"].map((cert, index) => (
+                                            <div key={index} className="flex items-center gap-3 p-3 bg-slate-700/30 rounded-lg">
+                                                <span className="text-2xl">{cert.split(' ')[0]}</span>
+                                                <span className="text-sm text-slate-300">{cert.substring(2)}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 hidden md:grid">
                                 <CertificationCard
                                     title="Desarrollo con Python"
                                     issuer="OpenWebinars"
@@ -798,7 +905,7 @@ function cafd_preprocess_node(&$variables) {
                                 </div>
                             </div>
                             
-                            <div className="grid md:grid-cols-2 gap-8">
+                            <div className="grid md:grid-cols-2 gap-8 hidden md:grid">
                                 <CertificationCard
                                     title="Desarrollo ERP con Odoo"
                                     issuer="OpenWebinars"
@@ -835,7 +942,7 @@ function cafd_preprocess_node(&$variables) {
                                 </div>
                             </div>
                             
-                            <div className="flex justify-center">
+                            <div className="flex justify-center hidden md:flex">
                                 <div className="max-w-md w-full">
                                     <CertificationCard
                                         title="IA Generativa Profesional"
@@ -949,7 +1056,12 @@ function cafd_preprocess_node(&$variables) {
                                     Conóceme más
                                 </span>
                             </h2>
-                            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                            {/* Versión móvil - más concisa */}
+                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
+                                Más allá del código
+                            </p>
+                            {/* Versión desktop - completa */}
+                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
                                 Más allá del código, estos son los aspectos que me definen como persona y que aportan valor a mi perfil profesional
                             </p>
                             <div className="mt-6 flex justify-center gap-4 flex-wrap">
@@ -969,7 +1081,7 @@ function cafd_preprocess_node(&$variables) {
                         </div>
                     </ScrollReveal>
                             
-                    <div className="grid lg:grid-cols-3 gap-8">
+                    <div className="grid lg:grid-cols-3 gap-8 hidden md:grid">
                         {[
                             {
                                 title: "Docencia",

@@ -46,13 +46,13 @@ export default function Header() {
 
             <div className="container-custom relative z-10">
                 {/* Main Header Section */}
-                <div className="flex items-center justify-between py-5">
+                       <div className="flex items-center justify-between py-3 sm:py-5">
                     {/* Left: Profile Info */}
-                    <div className="flex items-center gap-5">
+                    <div className="flex items-center gap-3 sm:gap-5">
                         {/* Profile Image with Glow */}
                         <div className="relative group">
                             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-xl opacity-75 group-hover:opacity-100 blur-sm transition-all duration-300"></div>
-                            <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-xl overflow-hidden border-2 border-white/10">
+                            <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl overflow-hidden border-2 border-white/10">
                                 <Image
                                     src="/social/profile.png"
                                     alt="Profile picture"
@@ -65,7 +65,7 @@ export default function Header() {
                         
                         {/* Name & Title */}
                         <div>
-                            <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
+                                   <h1 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent">
                                 {developerName}
                             </h1>
                             <p className="text-sm md:text-base text-slate-400 mt-0.5">
@@ -75,7 +75,7 @@ export default function Header() {
                     </div>
 
                     {/* Right: Social Links with Glow */}
-                    <div className="flex items-center gap-3">
+                           <div className="flex items-center gap-2 sm:gap-3">
                         {socialLinks.map((link) => (
                             <Link
                                 key={link.name}
@@ -86,13 +86,13 @@ export default function Header() {
                                 aria-label={link.alt}
                             >
                                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-lg opacity-0 group-hover:opacity-75 blur transition-all duration-300"></div>
-                                <div className="relative w-11 h-11 md:w-12 md:h-12 rounded-lg bg-slate-800/80 border border-slate-700/50 flex items-center justify-center group-hover:border-cyan-400/50 transition-all duration-300">
+                                <div className="relative w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-lg bg-slate-800/80 border border-slate-700/50 flex items-center justify-center group-hover:border-cyan-400/50 transition-all duration-300">
                                     <Image
                                         src={link.icon}
                                         alt={link.alt}
-                                        width={22}
-                                        height={22}
-                                        className="brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity"
+                                        width={18}
+                                        height={18}
+                                        className="sm:w-[22px] sm:h-[22px] brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity"
                                     />
                                 </div>
                             </Link>
