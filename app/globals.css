@@ -78,10 +78,9 @@ body {
 }
 
 .card {
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.6));
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
     border: 1px solid rgba(71, 85, 105, 0.3) !important;
     border-radius: var(--border-radius-lg);
-    backdrop-filter: blur(10px);
 }
 
 .card:hover {
@@ -92,10 +91,9 @@ body {
 
 /* Clase específica para cards de proyectos */
 .project-card {
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.6));
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
     border: 1px solid rgba(71, 85, 105, 0.3) !important;
     border-radius: var(--border-radius-lg);
-    backdrop-filter: blur(10px);
 }
 
 .project-card:hover {
@@ -130,185 +128,376 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Animaciones de Scroll - MÁS NOTORIAS */
+/* Scroll personalizado hipnótico */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+    border-radius: 10px;
+    border: 2px solid #0f172a;
+    box-shadow: 
+        0 0 10px rgba(6, 182, 212, 0.3),
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #0891b2 0%, #2563eb 50%, #7c3aed 100%);
+    box-shadow: 
+        0 0 20px rgba(6, 182, 212, 0.6),
+        inset 0 0 15px rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Scrollbar para Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #06b6d4 #0f172a;
+}
+
+/* Efectos de scroll suave con momentum */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+/* Animación de scroll reveal mejorada */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Efecto de parallax sutil */
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Animaciones de entrada más fluidas - SUAVES Y LIMPIAS */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(100px) scale(0.95);
-        filter: blur(5px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
+        transform: translateY(0);
     }
 }
 
 @keyframes fadeInLeft {
     from {
         opacity: 0;
-        transform: translateX(-100px) scale(0.9) rotateY(-10deg);
-        filter: blur(3px);
+        transform: translateX(-20px);
     }
     to {
         opacity: 1;
-        transform: translateX(0) scale(1) rotateY(0deg);
-        filter: blur(0);
+        transform: translateX(0);
     }
 }
 
 @keyframes fadeInRight {
     from {
         opacity: 0;
-        transform: translateX(100px) scale(0.9) rotateY(10deg);
-        filter: blur(3px);
+        transform: translateX(20px);
     }
     to {
         opacity: 1;
-        transform: translateX(0) scale(1) rotateY(0deg);
-        filter: blur(0);
+        transform: translateX(0);
     }
 }
 
-@keyframes scaleIn {
+@keyframes zoomIn {
     from {
         opacity: 0;
-        transform: scale(0.5) rotate(-5deg);
-        filter: blur(5px);
+        transform: scale(0.95);
     }
     to {
         opacity: 1;
-        transform: scale(1) rotate(0deg);
-        filter: blur(0);
+        transform: scale(1);
     }
 }
 
-@keyframes slideDown {
+@keyframes bounceIn {
     from {
         opacity: 0;
-        transform: translateY(-60px) scale(0.9);
-        filter: blur(3px);
+        transform: translateY(-20px);
     }
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
+        transform: translateY(0);
     }
 }
 
-/* Clases de animación para scroll reveal */
+/* Efectos de hover más suaves */
+.hover-lift {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradientes animados */
+.animated-gradient {
+    background: linear-gradient(-45deg, #06b6d4, #3b82f6, #8b5cf6, #ec4899);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Sistema de estilos unificado para secciones */
+.section-standard {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #22d3ee, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: #cbd5e1;
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+.section-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 1280px) {
+    .section-grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.section-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .section-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.section-grid-4 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .section-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.section-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(71, 85, 105, 0.3);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-card:hover {
+    border-color: rgba(8, 145, 178, 0.4);
+    transform: translateY(-2px);
+}
+
+.section-card-large {
+    padding: 3rem;
+}
+
+.section-card-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.section-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.section-card-subtitle {
+    font-size: 0.875rem;
+    color: #94a3b8;
+}
+
+.section-card-content {
+    flex: 1;
+    margin-top: 2rem;
+}
+
+/* Clases de animación para scroll reveal - LIMPIAS */
 .scroll-reveal {
     opacity: 0;
-    transform: translateY(80px) scale(0.9);
-    filter: blur(3px);
-    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(15px);
+    transition: all 0.5s ease-out;
 }
 
 .scroll-reveal.active {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
+    transform: translateY(0);
 }
 
 .fade-up {
-    animation: fadeInUp 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: fadeInUp 0.5s ease-out forwards;
 }
 
 .fade-left {
-    animation: fadeInLeft 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: fadeInLeft 0.5s ease-out forwards;
 }
 
 .fade-right {
-    animation: fadeInRight 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: fadeInRight 0.5s ease-out forwards;
 }
 
 .scale-in {
-    animation: scaleIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: scaleIn 0.5s ease-out forwards;
 }
 
 .slide-down {
-    animation: slideDown 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: slideDown 0.5s ease-out forwards;
 }
 
-/* Delays para animaciones escalonadas */
+/* Delays para animaciones escalonadas - REDUCIDOS */
 .delay-100 {
-    animation-delay: 0.15s;
+    animation-delay: 0.05s;
 }
 
 .delay-200 {
-    animation-delay: 0.3s;
+    animation-delay: 0.1s;
 }
 
 .delay-300 {
-    animation-delay: 0.45s;
+    animation-delay: 0.15s;
 }
 
 .delay-400 {
-    animation-delay: 0.6s;
+    animation-delay: 0.2s;
 }
 
 .delay-500 {
-    animation-delay: 0.75s;
+    animation-delay: 0.25s;
 }
 
 .delay-600 {
-    animation-delay: 0.9s;
+    animation-delay: 0.3s;
 }
 
-/* Animaciones adicionales espectaculares */
+/* Animaciones adicionales - LIMPIAS Y SUAVES */
 @keyframes bounceIn {
-    0% {
+    from {
         opacity: 0;
-        transform: scale(0.3) translateY(-100px);
+        transform: translateY(-10px);
     }
-    50% {
+    to {
         opacity: 1;
-        transform: scale(1.05);
-    }
-    70% {
-        transform: scale(0.95);
-    }
-    100% {
-        transform: scale(1);
+        transform: translateY(0);
     }
 }
 
 @keyframes flipInX {
     from {
-        transform: perspective(800px) rotateX(-90deg);
         opacity: 0;
-        filter: blur(5px);
+        transform: translateY(15px);
     }
     to {
-        transform: perspective(800px) rotateX(0deg);
         opacity: 1;
-        filter: blur(0);
+        transform: translateY(0);
     }
 }
 
 @keyframes zoomInRotate {
     from {
         opacity: 0;
-        transform: scale(0.3) rotate(-180deg);
-        filter: blur(10px);
+        transform: scale(0.98);
     }
     to {
         opacity: 1;
-        transform: scale(1) rotate(0deg);
-        filter: blur(0);
+        transform: scale(1);
     }
 }
 
 .bounce-in {
-    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation: bounceIn 0.6s ease-out forwards;
 }
 
 .flip-in {
-    animation: flipInX 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: flipInX 0.6s ease-out forwards;
 }
 
 .zoom-rotate {
-    animation: zoomInRotate 1.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: zoomInRotate 0.6s ease-out forwards;
 }
 
 /* Efecto parallax sutil */
