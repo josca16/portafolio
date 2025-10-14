@@ -44,16 +44,16 @@ export default function Header() {
         setTimeout(() => {
             const element = document.querySelector(href);
             if (element) {
-                const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - headerHeight - 10;
+                const headerHeight = 100; // Altura fija aproximada del header
+                const elementPosition = element.offsetTop;
+                const offsetPosition = elementPosition - headerHeight;
 
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
                 });
             }
-        }, 300); // Esperar a que termine la animación del menú
+        }, 350); // Esperar a que termine la animación del menú
     };
 
     return (
