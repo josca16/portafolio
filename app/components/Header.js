@@ -37,29 +37,23 @@ export default function Header() {
     ];
 
     const handleNavClick = (href) => {
-        const element = document.querySelector(href);
-        if (element) {
-            // Pequeño delay para asegurar que el header esté completamente renderizado
-            setTimeout(() => {
-                // Método más preciso usando scrollIntoView
-                element.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                    inline: 'nearest'
-                });
-                
-                // Ajuste adicional para compensar el header sticky
-                setTimeout(() => {
-                    const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-                    const currentScroll = window.pageYOffset;
-                    window.scrollTo({
-                        top: currentScroll - headerHeight + 50,
-                        behavior: 'smooth'
-                    });
-                }, 100);
-            }, 100);
-        }
+        // Cerrar menú móvil inmediatamente
         setIsMobileMenuOpen(false);
+        
+        // Esperar a que el menú se cierre antes de hacer scroll
+        setTimeout(() => {
+            const element = document.querySelector(href);
+            if (element) {
+                const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerHeight - 10;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 300); // Esperar a que termine la animación del menú
     };
 
     return (
