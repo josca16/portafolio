@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Header from "./components/Header";
 import ExperienceItem from "./components/ExperienceItem";
 import ProjectItem from "./components/ProjectItem";
@@ -7,6 +8,7 @@ import ProjectVideo from "./components/ProjectVideo";
 import ScrollReveal from "./components/ScrollReveal";
 import DemoWithCode from "./components/DemoWithCode";
 import CertificationCard from "./components/CertificationCard";
+import MobileCertifications from "./components/MobileCertifications";
 
 export default function Home() {
     const experiences = [
@@ -173,30 +175,12 @@ public class AuthController {
             videoSrc: "/projects/cafd/VideoCAFD.mp4",
             thumbnailSrc: "/projects/cafd/CapturaCAFDinicio.png",
             codeSnippet: `<?php
-/**
- * @file
- * Template para mostrar las federaciones deportivas
- */
-
 function cafd_preprocess_node(&$variables) {
     if ($variables['node']->type == 'federacion') {
         $node = $variables['node'];
-        
-        // Obtener datos de la federación
         $variables['federacion_nombre'] = $node->title;
         $variables['federacion_descripcion'] = $node->body['und'][0]['value'];
-        $variables['federacion_logo'] = file_create_url(
-            $node->field_logo['und'][0]['uri']
-        );
-        
-        // Obtener deportes asociados
-        $deportes = [];
-        if (!empty($node->field_deportes)) {
-            foreach ($node->field_deportes['und'] as $deporte) {
-                $deportes[] = $deporte['taxonomy_term']->name;
-            }
-        }
-        $variables['deportes'] = $deportes;
+        $variables['federacion_logo'] = file_create_url($node->field_logo['und'][0]['uri']);
     }
 }`,
             codeLanguage: "PHP",
@@ -275,50 +259,28 @@ function cafd_preprocess_node(&$variables) {
 
                 <div className="container-custom relative z-10">
                     <ScrollReveal animation="zoom-rotate">
-                        <div className="text-center mb-16">
-                            <div className="inline-block mb-4">
-                                <span className="px-4 py-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full text-sm text-cyan-300 font-semibold">
-                                    👨‍💻 Perfil Profesional
-                                </span>
-                            </div>
-                            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+                        <div className="text-center mb-6">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                                 <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                                    Sobre mí
+                                Sobre mí
                                 </span>
                             </h2>
-                            {/* Versión móvil - más concisa */}
-                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
-                                Mi perfil profesional como desarrollador
-                            </p>
-                            {/* Versión desktop - completa */}
-                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
-                                Conoce mi perfil profesional y las habilidades que me definen como desarrollador
-                            </p>
-                            <div className="mt-6 flex justify-center gap-4 flex-wrap">
-                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-blue-500/30">
-                                    <span className="text-2xl">🎯</span>
-                                    <span className="text-sm text-slate-300"><strong className="text-blue-400">100%</strong> Profesional</span>
-                                </div>
-                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-purple-500/30">
-                                    <span className="text-2xl">🚀</span>
-                                    <span className="text-sm text-slate-300"><strong className="text-purple-400">+2</strong> Años Experiencia</span>
-                                </div>
-                            </div>
                         </div>
                     </ScrollReveal>
                     
                     {/* Layout horizontal compacto - 4 columnas en una fila */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <ScrollReveal animation="fade-up" delay={100}>
-                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-500 hover-lift">
+                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-4 md:p-6 hover:border-white/20 transition-all duration-500 hover-lift">
                                 <div className="flex flex-col items-center text-center">
-                                    <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                                        <span className="text-white text-2xl">💻</span>
+                                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg">
+                                        <span className="text-white text-xl md:text-2xl">💻</span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-3">Desarrollador Multiplataforma</h3>
+                                    <h3 className="text-sm md:text-base font-bold text-white mb-2 md:mb-3">Desarrollador Multiplataforma</h3>
                                     {/* Versión móvil - más concisa */}
                                     <p className="text-sm text-slate-300 leading-relaxed md:hidden">
-                                        Desarrollador con experiencia profesional en <strong className="text-cyan-400">Codearts</strong>.
+                                        Programador junior titulado en <strong className="text-cyan-400">Desarrollo de Aplicaciones Multiplataforma</strong>, 
+                                        con experiencia profesional en <strong className="text-cyan-400">Codearts</strong>.
                                     </p>
                                     {/* Versión desktop - completa */}
                                     <p className="text-sm text-slate-300 leading-relaxed hidden md:block">
@@ -330,15 +292,16 @@ function cafd_preprocess_node(&$variables) {
                         </ScrollReveal>
                         
                         <ScrollReveal animation="fade-up" delay={200}>
-                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-500 hover-lift">
+                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-4 md:p-6 hover:border-white/20 transition-all duration-500 hover-lift">
                                 <div className="flex flex-col items-center text-center">
-                                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                                        <span className="text-white text-2xl">⚙️</span>
+                                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg">
+                                        <span className="text-white text-xl md:text-2xl">⚙️</span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-3">Enfoque Metódico</h3>
+                                    <h3 className="text-sm md:text-base font-bold text-white mb-2 md:mb-3">Enfoque Metódico</h3>
                                     {/* Versión móvil - más concisa */}
                                     <p className="text-sm text-slate-300 leading-relaxed md:hidden">
-                                        Enfoque <strong className="text-blue-400">meticuloso y estructurado</strong> en cada proyecto.
+                                        Me distingo por un enfoque <strong className="text-blue-400">meticuloso y estructurado</strong>, 
+                                        con especial atención al orden y la lógica.
                                     </p>
                                     {/* Versión desktop - completa */}
                                     <p className="text-sm text-slate-300 leading-relaxed hidden md:block">
@@ -350,15 +313,16 @@ function cafd_preprocess_node(&$variables) {
                         </ScrollReveal>
                         
                         <ScrollReveal animation="fade-up" delay={300}>
-                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-500 hover-lift">
+                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-4 md:p-6 hover:border-white/20 transition-all duration-500 hover-lift">
                                 <div className="flex flex-col items-center text-center">
-                                    <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                                        <span className="text-white text-2xl">🚀</span>
+                                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg">
+                                        <span className="text-white text-xl md:text-2xl">🚀</span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-3">Soluciones Efectivas</h3>
+                                    <h3 className="text-sm md:text-base font-bold text-white mb-2 md:mb-3">Soluciones Efectivas</h3>
                                     {/* Versión móvil - más concisa */}
                                     <p className="text-sm text-slate-300 leading-relaxed md:hidden">
-                                        <strong className="text-purple-400">Soluciones eficaces y estables</strong> para cada desafío.
+                                        Busco comprender a fondo las tecnologías para aportar 
+                                        <strong className="text-purple-400">soluciones eficaces y estables</strong> con sentido.
                                     </p>
                                     {/* Versión desktop - completa */}
                                     <p className="text-sm text-slate-300 leading-relaxed hidden md:block">
@@ -370,15 +334,16 @@ function cafd_preprocess_node(&$variables) {
                         </ScrollReveal>
                         
                         <ScrollReveal animation="fade-up" delay={400}>
-                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-500 hover-lift">
+                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-4 md:p-6 hover:border-white/20 transition-all duration-500 hover-lift">
                                 <div className="flex flex-col items-center text-center">
-                                    <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                                        <span className="text-white text-2xl">🛡️</span>
+                                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg">
+                                        <span className="text-white text-xl md:text-2xl">🛡️</span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-3">Trabajo Colaborativo</h3>
+                                    <h3 className="text-sm md:text-base font-bold text-white mb-2 md:mb-3">Trabajo Colaborativo</h3>
                                     {/* Versión móvil - más concisa */}
                                     <p className="text-sm text-slate-300 leading-relaxed md:hidden">
-                                        <strong className="text-green-400">Colaboración efectiva</strong> y aprendizaje continuo.
+                                        Disfruto aprendiendo de otros y <strong className="text-green-400">sumando claridad en entornos colaborativos</strong>, 
+                                        siempre buscando mejorar profesionalmente.
                                     </p>
                                     {/* Versión desktop - completa */}
                                     <p className="text-sm text-slate-300 leading-relaxed hidden md:block">
@@ -405,25 +370,17 @@ function cafd_preprocess_node(&$variables) {
 
                 <div className="container-custom relative z-10">
                     <ScrollReveal animation="zoom-rotate">
-                        <div className="text-center mb-16">
+                        <div className="text-center mb-6 md:mb-8">
                             <div className="inline-block mb-4">
                                 <span className="px-4 py-2 bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-500/30 rounded-full text-sm text-green-300 font-semibold">
                                     🛠️ Stack Tecnológico
                                 </span>
                             </div>
-                            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+                            <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
                                 <span className="bg-gradient-to-r from-green-400 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
-                                    Habilidades
+                                Habilidades
                                 </span>
                             </h2>
-                            {/* Versión móvil - más concisa */}
-                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
-                                Tecnologías que domino
-                            </p>
-                            {/* Versión desktop - completa */}
-                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
-                                Tecnologías y competencias que domino para crear soluciones innovadoras
-                            </p>
                             <div className="mt-6 flex justify-center gap-4 flex-wrap">
                                 <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-green-500/30">
                                     <span className="text-2xl">⚡</span>
@@ -433,172 +390,152 @@ function cafd_preprocess_node(&$variables) {
                                     <span className="text-2xl">🎯</span>
                                     <span className="text-sm text-slate-300"><strong className="text-blue-400">6</strong> Categorías</span>
                                 </div>
-                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-cyan-500/30">
-                                    <span className="text-2xl">🚀</span>
-                                    <span className="text-sm text-slate-300"><strong className="text-cyan-400">2025</strong> Actualizado</span>
-                                </div>
                             </div>
                         </div>
                     </ScrollReveal>
                     
-                    {/* Versión móvil - Habilidades compactas */}
+                    {/* Versión móvil - Habilidades mejoradas */}
                     <div className="md:hidden mb-8">
                         <ScrollReveal animation="fade-up" delay={100}>
                             <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-6">
-                                <h3 className="text-xl font-bold text-white mb-4 text-center">Habilidades Técnicas</h3>
-                                <div className="flex flex-wrap gap-2 justify-center">
-                                    {["Java", "JavaScript", "Python", "React", "Spring Boot", "Node.js", "Docker", "AWS", "MySQL", "Git"].map((skill, index) => (
-                                        <span key={index} className="px-3 py-1 text-sm bg-slate-700/50 text-slate-300 rounded-lg border border-slate-600/30">
-                                            {skill}
-                                        </span>
+                                
+                                {/* Habilidades Técnicas */}
+                                <div className="mb-6">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center">
+                                            <span className="text-white text-lg">💻</span>
+                                        </div>
+                                        <h4 className="text-sm font-bold text-cyan-400">Técnicas</h4>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-2">
+                                        {[
+                                            { name: "Java", level: "Avanzado", color: "from-orange-500 to-red-500" },
+                                            { name: "TypeScript", level: "Intermedio", color: "from-blue-600 to-cyan-600" },
+                                            { name: "Python", level: "Intermedio", color: "from-blue-500 to-cyan-500" },
+                                            { name: "React", level: "Intermedio", color: "from-cyan-400 to-blue-500" },
+                                            { name: "Docker", level: "Intermedio", color: "from-blue-600 to-indigo-600" },
+                                            { name: ".NET", level: "Intermedio", color: "from-purple-500 to-indigo-500" },
+                                            { name: "Spring Boot", level: "Avanzado", color: "from-green-500 to-emerald-500" },
+                                            { name: "SQL", level: "Avanzado", color: "from-blue-500 to-purple-500" }
+                                        ].map((skill, index) => (
+                                            <div key={index} className="bg-slate-700/50 rounded-lg p-3 border border-slate-600/30">
+                                                <div className="text-sm font-semibold text-white mb-1">{skill.name}</div>
+                                                <div className="text-xs text-slate-400 mb-2">{skill.level}</div>
+                                                <div className={`h-1.5 bg-gradient-to-r ${skill.color} rounded-full`}></div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Habilidades Personales */}
+                                <div>
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                                            <span className="text-white text-lg">🧠</span>
+                                        </div>
+                                        <h4 className="text-sm font-bold text-purple-400">Personales</h4>
+                                    </div>
+                                    <div className="space-y-3">
+                                        {[
+                                            { name: "Liderazgo", desc: "Dirigir equipos y proyectos", icon: "👑" },
+                                            { name: "Creatividad", desc: "Soluciones innovadoras", icon: "💡" },
+                                            { name: "Adaptabilidad", desc: "Flexibilidad en cambios", icon: "🔄" },
+                                            { name: "Trabajo en equipo", desc: "Colaboración efectiva", icon: "🤝" }
+                                        ].map((skill, index) => (
+                                            <div key={index} className="flex items-center gap-3 p-3 bg-slate-700/30 rounded-lg border border-slate-600/30">
+                                                <div className="text-2xl">{skill.icon}</div>
+                                                <div className="flex-1">
+                                                    <div className="text-sm font-semibold text-white">{skill.name}</div>
+                                                    <div className="text-xs text-slate-400">{skill.desc}</div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </ScrollReveal>
+                    </div>
+
+                    {/* Versión desktop - Habilidades mejoradas */}
+                    <div className="hidden md:grid md:grid-cols-2 gap-8">
+                        {/* Habilidades Técnicas */}
+                        <ScrollReveal animation="fade-left" delay={100}>
+                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-cyan-500/20 rounded-2xl p-8 hover:border-cyan-500/40 transition-all duration-500">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                        <span className="text-white text-2xl">💻</span>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-white">Habilidades Técnicas</h3>
+                                        <p className="text-cyan-400 text-sm">Tecnologías que domino</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="space-y-4">
+                                    {[
+                                        { name: "Java", level: "Avanzado", progress: 90, color: "from-orange-500 to-red-500" },
+                                        { name: "Spring Boot", level: "Avanzado", progress: 85, color: "from-green-500 to-emerald-500" },
+                                        { name: "SQL", level: "Avanzado", progress: 85, color: "from-blue-500 to-purple-500" },
+                                        { name: "Python", level: "Intermedio", progress: 80, color: "from-blue-500 to-cyan-500" },
+                                        { name: "TypeScript", level: "Intermedio", progress: 75, color: "from-blue-600 to-cyan-600" },
+                                        { name: ".NET", level: "Intermedio", progress: 70, color: "from-purple-500 to-indigo-500" },
+                                        { name: "React", level: "Intermedio", progress: 70, color: "from-cyan-400 to-blue-500" },
+                                        { name: "Docker", level: "Intermedio", progress: 65, color: "from-blue-600 to-indigo-600" }
+                                    ].map((skill, index) => (
+                                        <div key={index} className="group">
+                                            <div className="flex justify-between items-center mb-2">
+                                                <span className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors">{skill.name}</span>
+                                                <span className="text-xs text-slate-400">{skill.level}</span>
+                                            </div>
+                                            <div className="w-full bg-slate-700/50 rounded-full h-2">
+                                                <div 
+                                                    className={`h-2 bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out`}
+                                                    style={{ width: `${skill.progress}%` }}
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </ScrollReveal>
+
+                        {/* Habilidades Personales */}
+                        <ScrollReveal animation="fade-right" delay={200}>
+                            <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500/40 transition-all duration-500">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                        <span className="text-white text-2xl">🧠</span>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-white">Habilidades Personales</h3>
+                                        <p className="text-purple-400 text-sm">Competencias que me definen</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="space-y-4">
+                                    {[
+                                        { name: "Liderazgo", desc: "Dirigir equipos y proyectos con eficacia", icon: "👑", color: "from-yellow-500 to-orange-500" },
+                                        { name: "Creatividad", desc: "Desarrollo de soluciones innovadoras", icon: "💡", color: "from-blue-500 to-cyan-500" },
+                                        { name: "Adaptabilidad", desc: "Flexibilidad ante cambios y desafíos", icon: "🔄", color: "from-green-500 to-emerald-500" },
+                                        { name: "Trabajo en equipo", desc: "Colaboración efectiva y comunicación", icon: "🤝", color: "from-purple-500 to-pink-500" },
+                                        { name: "Pensamiento crítico", desc: "Análisis lógico y resolución de problemas", icon: "🧩", color: "from-indigo-500 to-purple-500" },
+                                        { name: "Aprendizaje continuo", desc: "Curiosidad constante y mejora personal", icon: "📚", color: "from-cyan-500 to-blue-500" }
+                                    ].map((skill, index) => (
+                                        <div key={index} className="group flex items-start gap-4 p-4 bg-slate-700/30 rounded-xl border border-slate-600/30 hover:border-purple-500/50 hover:bg-slate-600/40 transition-all duration-300">
+                                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${skill.color} flex items-center justify-center text-xl group-hover:scale-110 transition-transform duration-300`}>
+                                                {skill.icon}
+                                            </div>
+                                            <div className="flex-1">
+                                                <h4 className="text-base font-semibold text-white mb-1 group-hover:text-purple-300 transition-colors">{skill.name}</h4>
+                                                <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">{skill.desc}</p>
+                                            </div>
+                                        </div>
                                     ))}
                                 </div>
                             </div>
                         </ScrollReveal>
                     </div>
 
-                    <div className="section-grid-2 hidden md:grid">
-                        {/* Habilidades Técnicas */}
-                        <ScrollReveal animation="fade-left" delay={100}>
-                            <div className="relative group h-full">
-                                <div className="section-card section-card-large h-full flex flex-col border-cyan-500/20 hover:border-cyan-500/40">
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="relative">
-                                            <div className="section-card-icon bg-gradient-to-br from-cyan-600 to-blue-600 w-16 h-16">
-                                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            </svg>
-                                        </div>
-                                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-600 animate-ping opacity-20"></div>
-                                    </div>
-                                    <div>
-                                            <h3 className="section-card-title text-2xl">
-                                            Habilidades Técnicas
-                                        </h3>
-                                            <p className="section-card-subtitle text-cyan-400">Tecnologías y herramientas que domino</p>
-                                    </div>
-                                </div>
-                                
-                                    <div className="space-y-6 flex-1">
-                                    {[
-                                        {
-                                            category: "Lenguajes de Programación",
-                                            skills: ["Java", "JavaScript", "Python", "C#", "PHP", "SQL", "TypeScript"],
-                                            color: "from-blue-500 to-cyan-500",
-                                            icon: "💻"
-                                        },
-                                        {
-                                            category: "Frameworks y Librerías",
-                                            skills: ["Spring Boot", "React Native", "React", "Node.js", ".NET", "Unity", "Django"],
-                                            color: "from-green-500 to-emerald-500",
-                                            icon: "🚀"
-                                        },
-                                        {
-                                            category: "Bases de Datos",
-                                            skills: ["MariaDB", "MongoDB", "MySQL", "PostgreSQL", "Redis"],
-                                            color: "from-purple-500 to-indigo-500",
-                                            icon: "🗄️"
-                                        },
-                                        {
-                                            category: "Cloud y DevOps",
-                                            skills: ["Docker", "AWS", "Azure", "Kubernetes", "CI/CD", "Git"],
-                                            color: "from-orange-500 to-red-500",
-                                            icon: "☁️"
-                                        },
-                                        {
-                                            category: "Frontend y Diseño",
-                                            skills: ["HTML5", "CSS3", "Tailwind", "Next.js", "Responsive Design", "UI/UX"],
-                                            color: "from-pink-500 to-rose-500",
-                                            icon: "🎨"
-                                        },
-                                        {
-                                            category: "Metodologías y APIs",
-                                            skills: ["APIs REST", "GraphQL", "Scrum", "Agile", "Microservicios"],
-                                            color: "from-yellow-500 to-amber-500",
-                                            icon: "🔄"
-                                        }
-                                    ].map((group, index) => (
-                                        <div key={index} className="group">
-                                            <div className="flex items-center gap-3 mb-3">
-                                                <div className={`w-8 h-8 rounded-lg bg-gradient-to-r ${group.color} flex items-center justify-center text-sm`}>
-                                                    {group.icon}
-                                                </div>
-                                                <h4 className="text-lg font-semibold text-white group-hover:text-cyan-300 transition-colors">
-                                                    {group.category}
-                                                </h4>
-                                            </div>
-                                            <div className="flex flex-wrap gap-2">
-                                                {group.skills.map((skill, skillIndex) => (
-                                                    <span
-                                                        key={skillIndex}
-                                                        className="px-3 py-1.5 text-sm bg-slate-700/50 text-slate-300 rounded-lg border border-slate-600/30 hover:border-cyan-500/50 hover:bg-slate-600/50 hover:text-cyan-300 transition-all duration-300 cursor-default"
-                                                    >
-                                                {skill}
-                                            </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                        </ScrollReveal>
-                        
-                        {/* Habilidades Personales */}
-                        <ScrollReveal animation="fade-right" delay={200}>
-                            <div className="relative group h-full">
-                                <div className="section-card section-card-large h-full flex flex-col border-purple-500/20 hover:border-purple-500/40">
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="relative">
-                                        <div className="section-card-icon bg-gradient-to-br from-purple-600 to-pink-600 w-16 h-16">
-                                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                            </svg>
-                                        </div>
-                                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 animate-ping opacity-20"></div>
-                                    </div>
-                                    <div>
-                                        <h3 className="section-card-title text-2xl">
-                                            Habilidades Personales
-                                        </h3>
-                                        <p className="section-card-subtitle text-purple-400">Competencias que me definen como profesional</p>
-                                    </div>
-                                </div>
-                                
-                                    <div className="space-y-4 flex-1">
-                                    {[
-                                        { skill: "Pensamiento estructurado", icon: "🧩", desc: "Análisis lógico y metodología ordenada" },
-                                        { skill: "Enfoque en resultados reales", icon: "🎯", desc: "Orientación hacia objetivos medibles" },
-                                        { skill: "Aprendizaje profundo", icon: "📚", desc: "Curiosidad constante y mejora continua" },
-                                        { skill: "Autonomía responsable", icon: "🚀", desc: "Iniciativa con responsabilidad" },
-                                        { skill: "Atención al detalle", icon: "🔍", desc: "Precisión y calidad en cada proyecto" },
-                                        { skill: "Trabajo en equipo", icon: "🤝", desc: "Colaboración efectiva y comunicación" },
-                                        { skill: "Comunicación efectiva", icon: "💬", desc: "Claridad en ideas y propuestas" }
-                                    ].map((item, index) => (
-                                        <div
-                                            key={index}
-                                            className="group flex items-center gap-4 p-4 bg-gradient-to-r from-slate-700/30 to-slate-800/30 rounded-xl border border-slate-600/30 hover:border-purple-500/50 hover:from-slate-600/40 hover:to-slate-700/40 transition-all duration-300"
-                                        >
-                                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">
-                                                {item.icon}
-                                            </div>
-                                            <div className="flex-1">
-                                                <h4 className="text-base font-semibold text-white mb-1 group-hover:text-purple-300 transition-colors">
-                                                    {item.skill}
-                                                </h4>
-                                                <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
-                                                    {item.desc}
-                                                </p>
-                                            </div>
-                                            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                        </ScrollReveal>
-                    </div>
                 </div>
             </section>
 
@@ -614,25 +551,12 @@ function cafd_preprocess_node(&$variables) {
 
                 <div className="container-custom relative z-10">
                     <ScrollReveal animation="zoom-rotate">
-                        <div className="text-center mb-16">
-                            <div className="inline-block mb-4">
-                                <span className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 rounded-full text-sm text-purple-300 font-semibold">
-                                    💼 Portfolio Profesional
-                                </span>
-                            </div>
-                            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+                        <div className="text-center mb-6 md:mb-8">
+                            <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
                                 <span className="bg-gradient-to-r from-purple-400 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
-                                    Mis Proyectos
+                                Mis Proyectos
                                 </span>
                             </h2>
-                            {/* Versión móvil - más concisa */}
-                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
-                                Mis proyectos desarrollados
-                            </p>
-                            {/* Versión desktop - completa */}
-                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
-                                Explora mi portfolio de proyectos desarrollados con las últimas tecnologías
-                            </p>
                             <div className="mt-6 flex justify-center gap-4 flex-wrap">
                                 <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-purple-500/30">
                                     <span className="text-2xl">🚀</span>
@@ -667,18 +591,18 @@ function cafd_preprocess_node(&$variables) {
                     {/* Sección de Demos con Código - Oculto en móvil */}
                     <ScrollReveal animation="fade-up" delay={400} className="hidden md:block">
                         <div className="text-center mb-8 mt-16">
-                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                            <h3 className="text-lg md:text-xl font-bold text-white mb-3">
                                 <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                                     Demos + Código
-                                </span>
+                            </span>
                             </h3>
                             <p className="text-slate-300 max-w-2xl mx-auto">
                                 Explora los proyectos en acción con sus respectivos fragmentos de código
-                            </p>
-                        </div>
-                    </ScrollReveal>
+                        </p>
+                    </div>
+                        </ScrollReveal>
 
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid md:grid-cols-2 gap-8 hidden md:grid">
                         {projectVideos.map((video, index) => (
                             <ScrollReveal key={index} animation="fade-up" delay={index * 100}>
                                 <DemoWithCode
@@ -689,8 +613,8 @@ function cafd_preprocess_node(&$variables) {
                                     codeTitle={video.codeTitle}
                                     codeDescription={video.description}
                                     aspectRatio="16/9"
-                                />
-                            </ScrollReveal>
+                            />
+                        </ScrollReveal>
                         ))}
                     </div>
                 </div>
@@ -709,30 +633,17 @@ function cafd_preprocess_node(&$variables) {
 
                 <div className="container-custom relative z-10">
                     <ScrollReveal animation="zoom-rotate">
-                        <div className="text-center mb-16">
-                            <div className="inline-block mb-4">
-                                <span className="px-4 py-2 bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-500/30 rounded-full text-sm text-green-300 font-semibold">
-                                    💼 Trayectoria Profesional
-                                </span>
-                            </div>
-                            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+                        <div className="text-center mb-6 md:mb-8">
+                            <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
                                 <span className="bg-gradient-to-r from-green-400 via-blue-500 to-orange-500 bg-clip-text text-transparent">
-                                    Experiencia Laboral
-                                </span>
+                                Experiencia Laboral
+                            </span>
                             </h2>
-                            {/* Versión móvil - más concisa */}
-                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
-                                Mi trayectoria profesional
-                            </p>
-                            {/* Versión desktop - completa */}
-                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
-                                Mi trayectoria profesional y académica que me ha llevado hasta aquí
-                            </p>
                             <div className="mt-6 flex justify-center gap-4 flex-wrap">
                                 <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-green-500/30">
                                     <span className="text-2xl">💼</span>
                                     <span className="text-sm text-slate-300"><strong className="text-green-400">+4</strong> Proyectos</span>
-                                </div>
+                    </div>
                                 <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-blue-500/30">
                                     <span className="text-2xl">⏱️</span>
                                     <span className="text-sm text-slate-300"><strong className="text-blue-400">2+</strong> Años</span>
@@ -747,24 +658,57 @@ function cafd_preprocess_node(&$variables) {
                             <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-6">
                                 <h3 className="text-xl font-bold text-white mb-4 text-center">Mi Experiencia</h3>
                                 <div className="space-y-4">
-                                    <div className="flex items-start gap-3 p-3 bg-slate-700/30 rounded-lg">
-                                        <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                                            <span className="text-white text-sm font-bold">CS</span>
-                                        </div>
-                                        <div>
-                                            <h4 className="text-sm font-bold text-white">CodeArts Solutions</h4>
-                                            <p className="text-xs text-slate-400">Desarrollador en Prácticas</p>
-                                            <p className="text-xs text-slate-300 mt-1">Desarrollo web con Drupal y PHP</p>
+                                    <div className="relative group">
+                                        <div className="bg-gradient-to-br from-slate-700/50 to-slate-800/50 border border-green-500/30 rounded-xl p-4 hover:border-green-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20">
+                                            <div className="flex items-start gap-4">
+                                                <div className="relative">
+                                                    <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
+                                                        <Image
+                                                            src="/company_logo/codearts.png"
+                                                            alt="CodeArts Logo"
+                                                            width={32}
+                                                            height={32}
+                                                            className="object-contain"
+                                                        />
+                                </div>
+                                                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                                                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                            </div>
+                                                </div>
+                                                <div className="flex-1">
+                                                    <h4 className="text-base font-bold text-white mb-1">CodeArts Solutions</h4>
+                                                    <p className="text-sm text-green-400 font-semibold mb-1">Desarrollador en Prácticas</p>
+                                                    <p className="text-xs text-slate-400 mb-2">2024 - 2025</p>
+                                                    <p className="text-sm text-slate-300">Desarrollo web con Drupal y PHP</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex items-start gap-3 p-3 bg-slate-700/30 rounded-lg">
-                                        <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                                            <span className="text-white text-sm font-bold">UVA</span>
-                                        </div>
-                                        <div>
-                                            <h4 className="text-sm font-bold text-white">Universidad de Valladolid</h4>
-                                            <p className="text-xs text-slate-400">Grado Superior DAM</p>
-                                            <p className="text-xs text-slate-300 mt-1">Desarrollo de Aplicaciones Multiplataforma</p>
+                                    
+                                    <div className="relative group">
+                                        <div className="bg-gradient-to-br from-slate-700/50 to-slate-800/50 border border-purple-500/30 rounded-xl p-4 hover:border-purple-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
+                                            <div className="flex items-start gap-4">
+                                                <div className="relative">
+                                                    <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
+                                                        <Image
+                                                            src="/company_logo/cesur.png"
+                                                            alt="Cesur Logo"
+                                                            width={32}
+                                                            height={32}
+                                                            className="object-contain"
+                                                        />
+                                                    </div>
+                                                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-purple-500 rounded-full flex items-center justify-center">
+                                                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                                                    </div>
+                                                </div>
+                                                <div className="flex-1">
+                                                    <h4 className="text-base font-bold text-white mb-1">Cesur Formación</h4>
+                                                    <p className="text-sm text-purple-400 font-semibold mb-1">Grado Superior DAM</p>
+                                                    <p className="text-xs text-slate-400 mb-2">Sep 2023 - Jun 2025</p>
+                                                    <p className="text-sm text-slate-300">Desarrollo de Aplicaciones Multiplataforma • <span className="text-yellow-400 font-semibold">8.6/10</span></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -794,34 +738,17 @@ function cafd_preprocess_node(&$variables) {
 
                 <div className="container-custom relative z-10">
                     <ScrollReveal animation="zoom-rotate">
-                        <div className="text-center mb-16">
-                            <div className="inline-block mb-4">
-                                <span className="px-4 py-2 bg-gradient-to-r from-orange-500/20 to-purple-500/20 border border-orange-500/30 rounded-full text-sm text-orange-300 font-semibold">
-                                    🎓 Formación Continua
-                                </span>
-                            </div>
-                            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+                        <div className="text-center mb-6 md:mb-8">
+                            <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
                             <span className="bg-gradient-to-r from-orange-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
                                     Certificaciones Profesionales
                             </span>
                             </h2>
-                            {/* Versión móvil - más concisa */}
-                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
-                                Mis certificaciones técnicas
-                            </p>
-                            {/* Versión desktop - completa */}
-                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
-                                Mi compromiso con el aprendizaje continuo se refleja en estas certificaciones oficiales que respaldan mi experiencia técnica
-                            </p>
                             <div className="mt-6 flex justify-center gap-4 flex-wrap">
                                 <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-cyan-500/30">
                                     <span className="text-2xl">📜</span>
                                     <span className="text-sm text-slate-300"><strong className="text-cyan-400">6+</strong> Certificaciones</span>
                     </div>
-                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-purple-500/30">
-                                    <span className="text-2xl">💻</span>
-                                    <span className="text-sm text-slate-300"><strong className="text-purple-400">3</strong> Categorías</span>
-                                </div>
                                 <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-blue-500/30">
                                     <span className="text-2xl">✓</span>
                                     <span className="text-sm text-slate-300"><strong className="text-blue-400">100%</strong> Verificables</span>
@@ -830,205 +757,71 @@ function cafd_preprocess_node(&$variables) {
                     </div>
                     </ScrollReveal>
                     
-                    {/* Backend Development */}
+                    {/* Grid compacto de certificaciones */}
                     <ScrollReveal animation="fade-up">
-                        <div className="mb-12">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg">
-                                    <span className="text-2xl">🔧</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-2xl font-bold text-white">Desarrollo Backend</h3>
-                                    <p className="text-sm text-slate-400">Lenguajes y frameworks del lado del servidor</p>
-                                </div>
-                            </div>
-                            
-                            {/* Versión móvil - Lista compacta */}
-                            <div className="md:hidden mb-8">
-                                <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-white/10 rounded-2xl p-6">
-                                    <h3 className="text-xl font-bold text-white mb-4 text-center">Mis Certificaciones</h3>
-                                    <div className="space-y-3">
-                                        {["🐍 Python Development", "🌐 PHP Web Development", "📊 Odoo ERP", "🔧 Git Professional", "🤖 IA Generativa"].map((cert, index) => (
-                                            <div key={index} className="flex items-center gap-3 p-3 bg-slate-700/30 rounded-lg">
-                                                <span className="text-2xl">{cert.split(' ')[0]}</span>
-                                                <span className="text-sm text-slate-300">{cert.substring(2)}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
+                        {/* Versión móvil - Lista con enlaces */}
+                        <MobileCertifications />
 
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 hidden md:grid">
-                                <CertificationCard
-                                    title="Desarrollo con Python"
-                                    issuer="OpenWebinars"
-                                    description="Programación orientada a objetos, estructuras de datos avanzadas y desarrollo de aplicaciones en Python"
-                                    pdfUrl="/certificaciones/certificado_curso_de_python__aprende_a_programar_en_python_3.pdf"
-                                    icon="🐍"
-                                    color="from-blue-500 to-cyan-500"
-                                    skills={["Python 3", "POO", "Estructuras de datos"]}
-                                />
+                        {/* Versión desktop - Grid compacto 3x2 */}
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 hidden md:grid">
+                            <CertificationCard
+                                title="Python Avanzado"
+                                issuer="OpenWebinars"
+                                description="POO, estructuras de datos y desarrollo de aplicaciones"
+                                pdfUrl="/certificaciones/certificado_curso_de_python__aprende_a_programar_en_python_3.pdf"
+                                icon="🐍"
+                                color="from-blue-500 to-cyan-500"
+                                skills={["Python 3", "POO"]}
+                            />
 
-                                <CertificationCard
-                                    title="Fundamentos Python"
-                                    issuer="OpenWebinars"
-                                    description="Dominio de sintaxis Python, tipos de datos, funciones y módulos para el desarrollo de aplicaciones robustas"
-                                    pdfUrl="/certificaciones/certificado_python_desde_cero.pdf"
-                                    icon="⚡"
-                                    color="from-cyan-500 to-blue-500"
-                                    skills={["Python", "Programación", "Desarrollo", "Scripting"]}
-                                />
+                            <CertificationCard
+                                title="Desarrollo Web PHP"
+                                issuer="OpenWebinars"
+                                description="Aplicaciones web dinámicas y APIs"
+                                pdfUrl="/certificaciones/certificado_php__fundamentos.pdf"
+                                icon="🌐"
+                                color="from-indigo-500 to-purple-500"
+                                skills={["PHP", "Backend"]}
+                            />
 
-                                <CertificationCard
-                                    title="Desarrollo Web con PHP"
-                                    issuer="OpenWebinars"
-                                    description="Creación de aplicaciones web dinámicas con PHP, gestión de bases de datos y desarrollo de APIs"
-                                    pdfUrl="/certificaciones/certificado_php__fundamentos.pdf"
-                                    icon="🌐"
-                                    color="from-indigo-500 to-purple-500"
-                                    skills={["PHP", "Desarrollo web", "Backend", "Bases de datos"]}
-                                />
-                            </div>
-                        </div>
-                    </ScrollReveal>
+                            <CertificationCard
+                                title="Odoo ERP"
+                                issuer="OpenWebinars"
+                                description="Desarrollo de módulos empresariales"
+                                pdfUrl="/certificaciones/certificado_curso_de_odoo.pdf"
+                                icon="📊"
+                                color="from-purple-500 to-indigo-500"
+                                skills={["Odoo", "ERP"]}
+                            />
 
-                    {/* Business Applications & DevOps */}
-                    <ScrollReveal animation="fade-up" delay={100}>
-                        <div className="mb-12">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg">
-                                    <span className="text-2xl">🏢</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-2xl font-bold text-white">Herramientas Empresariales & DevOps</h3>
-                                    <p className="text-sm text-slate-400">ERP, control de versiones y gestión de proyectos</p>
-                                </div>
-                            </div>
-                            
-                            <div className="grid md:grid-cols-2 gap-8 hidden md:grid">
-                                <CertificationCard
-                                    title="Desarrollo ERP con Odoo"
-                                    issuer="OpenWebinars"
-                                    description="Desarrollo y personalización de módulos en el ERP open source Odoo para gestión empresarial integral"
-                                    pdfUrl="/certificaciones/certificado_curso_de_odoo.pdf"
-                                    icon="📊"
-                                    color="from-purple-500 to-indigo-500"
-                                    skills={["Odoo", "ERP", "Python", "Gestión empresarial"]}
-                                />
+                            <CertificationCard
+                                title="Git Profesional"
+                                issuer="OpenWebinars"
+                                description="Control de versiones avanzado"
+                                pdfUrl="/certificaciones/certificado_curso_de_git.pdf"
+                                icon="🔧"
+                                color="from-orange-500 to-red-500"
+                                skills={["Git", "GitHub"]}
+                            />
 
-                                <CertificationCard
-                                    title="Git Profesional"
-                                    issuer="OpenWebinars"
-                                    description="Control de versiones avanzado, flujos de trabajo colaborativos y gestión profesional de repositorios"
-                                    pdfUrl="/certificaciones/certificado_curso_de_git.pdf"
-                                    icon="🔧"
-                                    color="from-orange-500 to-red-500"
-                                    skills={["Git", "GitHub", "Control de versiones", "Colaboración"]}
-                                />
-                            </div>
-                        </div>
-                    </ScrollReveal>
+                            <CertificationCard
+                                title="IA Generativa"
+                                issuer="Microsoft & LinkedIn"
+                                description="Fundamentos de Inteligencia Artificial"
+                                pdfUrl="/certificaciones/CertificadoDeFinalizacion_Fundamentos%20profesionales%20de%20IA%20generativa%20por%20Microsoft%20y%20LinkedIn.pdf"
+                                icon="🤖"
+                                color="from-green-500 to-emerald-500"
+                                skills={["IA", "ML"]}
+                            />
 
-                    {/* Emerging Technologies */}
-                    <ScrollReveal animation="fade-up" delay={200}>
-                        <div className="mb-12">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center shadow-lg">
-                                    <span className="text-2xl">🤖</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-2xl font-bold text-white">Tecnologías Emergentes</h3>
-                                    <p className="text-sm text-slate-400">Inteligencia Artificial y Machine Learning</p>
-                                </div>
-                            </div>
-                            
-                            <div className="flex justify-center hidden md:flex">
-                                <div className="max-w-md w-full">
-                                    <CertificationCard
-                                        title="IA Generativa Profesional"
-                                        issuer="Microsoft & LinkedIn"
-                                        description="Fundamentos de Inteligencia Artificial Generativa y sus aplicaciones prácticas en desarrollo profesional"
-                                        pdfUrl="/certificaciones/CertificadoDeFinalizacion_Fundamentos profesionales de IA generativa por Microsoft y LinkedIn.pdf"
-                                        icon="🤖"
-                                        color="from-green-500 to-emerald-500"
-                                        skills={["IA", "Machine Learning", "Generative AI", "Microsoft"]}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </ScrollReveal>
-
-                    {/* Cursos empresariales adicionales */}
-                    <ScrollReveal animation="fade-up" delay={600}>
-                        <div className="mt-16">
-                            <div className="text-center mb-8">
-                                <h3 className="text-3xl font-bold text-white mb-2">
-                                    <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                                        Formación Empresarial
-                                    </span>
-                                </h3>
-                                <p className="text-slate-400">Cursos especializados recibidos durante mi experiencia profesional</p>
-                            </div>
-                            
-                            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                                <div className="relative group">
-                                    <div className="relative bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-blue-500/20 rounded-2xl p-8 hover:border-blue-500/40 transition-all duration-500">
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className="relative">
-                                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-2xl text-2xl">
-                                                    🔄
-                                            </div>
-                                                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 animate-ping opacity-20"></div>
-                                        </div>
-                                        <div>
-                                                <h4 className="text-xl font-bold text-white mb-1">
-                                                    Metodología Scrum
-                                                </h4>
-                                                <p className="text-sm text-blue-400">CodeArts Solutions</p>
-                                        </div>
-                                    </div>
-                                        <p className="text-sm text-slate-300 leading-relaxed mb-4">
-                                            Formación práctica en metodologías ágiles Scrum impartida en entorno empresarial real, aplicada directamente en proyectos con clientes
-                                        </p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {["Scrum", "Agile", "Sprint", "Daily", "Retrospectivas"].map((skill, i) => (
-                                                <span key={i} className="px-3 py-1 text-xs bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30">
-                                                    {skill}
-                                                </span>
-                                            ))}
-                                </div>
-                                        </div>
-                                    </div>
-                                    
-                                <div className="relative group">
-                                    <div className="relative bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500/40 transition-all duration-500">
-                                        <div className="flex items-center gap-4 mb-6">
-                                            <div className="relative">
-                                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center shadow-2xl text-2xl">
-                                                    🏗️
-                                                </div>
-                                                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-500 animate-ping opacity-20"></div>
-                                            </div>
-                                            <div>
-                                                <h4 className="text-xl font-bold text-white mb-1">
-                                                    Desarrollo con Drupal
-                                                </h4>
-                                                <p className="text-sm text-purple-400">CodeArts Solutions</p>
-                                </div>
-                            </div>
-                                        <p className="text-sm text-slate-300 leading-relaxed mb-4">
-                                            Introducción práctica al desarrollo web con el CMS Drupal, aplicada directamente al rediseño completo del proyecto CAFD
-                                        </p>
-                                        <div className="flex flex-wrap gap-2">
-                                            {["Drupal", "CMS", "PHP", "Twig", "Módulos"].map((skill, i) => (
-                                                <span key={i} className="px-3 py-1 text-xs bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30">
-                                                    {skill}
-                                                </span>
-                        ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <CertificationCard
+                                title="Scrum & Drupal"
+                                issuer="CodeArts Solutions"
+                                description="Formación empresarial en metodologías ágiles y CMS"
+                                icon="🔄"
+                                color="from-blue-500 to-purple-500"
+                                skills={["Scrum", "Drupal"]}
+                            />
                         </div>
                     </ScrollReveal>
                                     </div>
@@ -1045,86 +838,49 @@ function cafd_preprocess_node(&$variables) {
 
                 <div className="container-custom relative z-10">
                     <ScrollReveal animation="zoom-rotate">
-                        <div className="text-center mb-16">
+                        <div className="text-center mb-6 md:mb-8">
                             <div className="inline-block mb-4">
                                 <span className="px-4 py-2 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 rounded-full text-sm text-emerald-300 font-semibold">
                                     🌟 Más allá del código
                                 </span>
                             </div>
-                            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-                                <span className="bg-gradient-to-r from-emerald-400 via-cyan-500 to-green-500 bg-clip-text text-transparent">
-                                    Conóceme más
-                                </span>
-                            </h2>
-                            {/* Versión móvil - más concisa */}
-                            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 md:hidden">
-                                Más allá del código
-                            </p>
-                            {/* Versión desktop - completa */}
-                            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-4 hidden md:block">
-                                Más allá del código, estos son los aspectos que me definen como persona y que aportan valor a mi perfil profesional
-                            </p>
-                            <div className="mt-6 flex justify-center gap-4 flex-wrap">
-                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-emerald-500/30">
-                                    <span className="text-2xl">🎓</span>
-                                    <span className="text-sm text-slate-300"><strong className="text-emerald-400">Monitor</strong> Pádel</span>
+                            <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
+                            <span className="bg-gradient-to-r from-emerald-400 via-cyan-500 to-green-500 bg-clip-text text-transparent">
+                                Conóceme más
+                            </span>
+                        </h2>
+                        </div>
+                    </ScrollReveal>
+
+                    {/* Sección Mi Pádel - Cuadro independiente */}
+                    <div className="max-w-4xl mx-auto mb-8">
+                        <div className="bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-cyan-500/20 rounded-2xl p-6">
+                            <div className="space-y-4">
+                                <div className="bg-slate-700/30 rounded-xl p-4 border border-slate-600/30">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <span className="text-2xl">🎓</span>
+                                        <h4 className="text-lg font-semibold text-white">Monitor de Pádel</h4>
+                                    </div>
+                                    <p className="text-sm text-slate-300">Monitor de pádel. Me motiva enseñar, comunicar y ver el progreso de los demás. Esta experiencia me ha enseñado paciencia, claridad en la comunicación y la satisfacción de ver cómo otros mejoran con mi ayuda.</p>
                                 </div>
-                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-cyan-500/30">
-                                    <span className="text-2xl">🏆</span>
-                                    <span className="text-sm text-slate-300"><strong className="text-cyan-400">Torneos</strong> Regionales</span>
+                                
+                                <div className="bg-slate-700/30 rounded-xl p-4 border border-slate-600/30">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <span className="text-2xl">🏆</span>
+                                        <h4 className="text-lg font-semibold text-white">Jugador de Pádel</h4>
+                                    </div>
+                                    <p className="text-sm text-slate-300">Jugador de pádel con experiencia en torneos provinciales y regionales. Desarrollé constancia, ambición y mentalidad competitiva. El deporte me enseña disciplina, trabajo en equipo y la importancia de la práctica constante.</p>
                                 </div>
-                                <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-full border border-green-500/30">
-                                    <span className="text-2xl">💚</span>
-                                    <span className="text-sm text-slate-300"><strong className="text-green-400">Nutrición</strong> Optimización</span>
+                                
+                                <div className="bg-slate-700/30 rounded-xl p-4 border border-slate-600/30">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <span className="text-2xl">💚</span>
+                                        <h4 className="text-lg font-semibold text-white">Nutrición y Rendimiento</h4>
+                                    </div>
+                                    <p className="text-sm text-slate-300">Interesado en la nutrición y el rendimiento. Me gusta aprender cómo mejorar energía y bienestar. Esta pasión por optimizar procesos y resultados se refleja también en mi enfoque hacia el desarrollo de software.</p>
                                 </div>
                             </div>
                         </div>
-                    </ScrollReveal>
-                            
-                    <div className="grid lg:grid-cols-3 gap-8 hidden md:grid">
-                        {[
-                            {
-                                title: "Docencia",
-                                icon: "🎓",
-                                color: "from-emerald-500 to-cyan-500",
-                                description: "Monitor de pádel. Me motiva enseñar, comunicar y ver el progreso de los demás. Esta experiencia me ha enseñado paciencia, claridad en la comunicación y la satisfacción de ver cómo otros mejoran con mi ayuda."
-                            },
-                            {
-                                title: "Deporte",
-                                icon: "🏆",
-                                color: "from-cyan-500 to-blue-500",
-                                description: "Jugador de pádel con experiencia en competiciones locales y regionales. Desarrollé constancia, ambición y mentalidad competitiva. El deporte me enseña disciplina, trabajo en equipo y la importancia de la práctica constante."
-                            },
-                            {
-                                title: "Nutrición",
-                                icon: "💚",
-                                color: "from-green-500 to-emerald-500",
-                                description: "Interesado en la nutrición y el rendimiento. Me gusta aprender cómo mejorar energía y bienestar. Esta pasión por optimizar procesos y resultados se refleja también en mi enfoque hacia el desarrollo de software."
-                            }
-                        ].map((interest, index) => (
-                            <div key={index} className="relative group">
-                                <div className={`relative bg-gradient-to-br from-slate-800/95 to-slate-900/95 border border-${interest.color.split('-')[1]}-500/20 rounded-2xl p-8 hover:border-${interest.color.split('-')[1]}-500/40 transition-all duration-500`}>
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className="relative">
-                                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${interest.color} flex items-center justify-center shadow-2xl text-2xl`}>
-                                                {interest.icon}
-                                            </div>
-                                            <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${interest.color} animate-ping opacity-20`}></div>
-                                        </div>
-                                        <div>
-                                            <h3 className="text-xl font-bold text-white mb-1">
-                                                {interest.title}
-                                            </h3>
-                                            <p className="text-sm text-slate-400">Aspecto personal</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <p className="text-sm text-slate-300 leading-relaxed">
-                                        {interest.description}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
                     </div>
 
                     <PadelGallery />

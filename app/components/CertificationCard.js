@@ -2,8 +2,20 @@
 
 export default function CertificationCard({ title, issuer, description, pdfUrl, icon, color, skills }) {
     const handleDownload = () => {
+        console.log('handleDownload ejecutándose');
         if (pdfUrl) {
-            window.open(pdfUrl, '_blank');
+            console.log('URL encontrada:', pdfUrl);
+            // Método simple y directo
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            console.log('Enlace creado y clickeado');
+        } else {
+            console.log('No hay URL de PDF configurada');
         }
     };
 
@@ -71,8 +83,18 @@ export default function CertificationCard({ title, issuer, description, pdfUrl, 
                     {pdfUrl && (
                         <div className="pt-4">
                             <button
-                                onClick={handleDownload}
-                                className={`w-full py-3 px-4 bg-gradient-to-r ${color} rounded-xl text-white font-semibold shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    console.log('Botón clickeado!', pdfUrl);
+                                    handleDownload();
+                                }}
+                                onMouseDown={(e) => {
+                                    console.log('Mouse down en botón');
+                                    e.preventDefault();
+                                }}
+                                className={`w-full py-3 px-4 bg-gradient-to-r ${color} rounded-xl text-white font-semibold shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer relative z-10`}
+                                style={{ pointerEvents: 'auto' }}
                             >
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

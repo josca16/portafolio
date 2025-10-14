@@ -10,7 +10,7 @@ export default function TaxiDayPage() {
                     <Link href="/" className="flex items-center gap-3 text-yellow-400 hover:text-yellow-300 transition-colors">
                         <span className="text-xl sm:text-2xl">←</span>
                         <span className="text-base sm:text-lg font-semibold">Volver al Portfolio</span>
-                    </Link>
+                        </Link>
                     <div className="flex items-center gap-3 sm:gap-4">
                         <Image
                             src="/projects_logo/LOGOtaxiday.png"
@@ -84,7 +84,7 @@ export default function TaxiDayPage() {
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
                                     <span className="text-gray-300">Estadísticas Visuales</span>
-                                </div>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -144,7 +144,7 @@ export default function TaxiDayPage() {
                             <p className="text-sm text-gray-300 leading-relaxed">
                                 Interfaz responsive optimizada para dispositivos móviles, permitiendo gestión desde cualquier lugar.
                             </p>
-                        </div>
+                                </div>
 
                         <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:shadow-2xl transition-all duration-300 hover:scale-105">
                             <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center mb-4">
@@ -345,9 +345,9 @@ export default function TaxiDayPage() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base"
                         >
-                            <span>📁</span>
-                            Ver Código en GitHub
-                        </a>
+                        <span>📁</span>
+                        Ver Código en GitHub
+                    </a>
                     </div>
                 </section>
             </main>
