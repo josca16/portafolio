@@ -259,8 +259,8 @@ function cafd_preprocess_node(&$variables) {
 
                 <div className="container-custom relative z-10">
                     <ScrollReveal animation="zoom-rotate">
-                        <div className="text-center mb-6">
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                        <div className="text-center mb-6 md:mb-12">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4">
                                 <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
                                 Sobre mí
                                 </span>
@@ -276,7 +276,7 @@ function cafd_preprocess_node(&$variables) {
                                     <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg">
                                         <span className="text-white text-xl md:text-2xl">💻</span>
                                     </div>
-                                    <h3 className="text-sm md:text-base font-bold text-white mb-2 md:mb-3">Desarrollador Multiplataforma</h3>
+                                    <h3 className="text-sm md:text-lg font-bold text-white mb-2 md:mb-3">Desarrollador Multiplataforma</h3>
                                     {/* Versión móvil - más concisa */}
                                     <p className="text-sm text-slate-300 leading-relaxed md:hidden">
                                         Programador junior titulado en <strong className="text-cyan-400">Desarrollo de Aplicaciones Multiplataforma</strong>, 
@@ -297,7 +297,7 @@ function cafd_preprocess_node(&$variables) {
                                     <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg">
                                         <span className="text-white text-xl md:text-2xl">⚙️</span>
                                     </div>
-                                    <h3 className="text-sm md:text-base font-bold text-white mb-2 md:mb-3">Enfoque Metódico</h3>
+                                    <h3 className="text-sm md:text-lg font-bold text-white mb-2 md:mb-3">Enfoque Metódico</h3>
                                     {/* Versión móvil - más concisa */}
                                     <p className="text-sm text-slate-300 leading-relaxed md:hidden">
                                         Me distingo por un enfoque <strong className="text-blue-400">meticuloso y estructurado</strong>, 
@@ -318,7 +318,7 @@ function cafd_preprocess_node(&$variables) {
                                     <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg">
                                         <span className="text-white text-xl md:text-2xl">🚀</span>
                                     </div>
-                                    <h3 className="text-sm md:text-base font-bold text-white mb-2 md:mb-3">Soluciones Efectivas</h3>
+                                    <h3 className="text-sm md:text-lg font-bold text-white mb-2 md:mb-3">Soluciones Efectivas</h3>
                                     {/* Versión móvil - más concisa */}
                                     <p className="text-sm text-slate-300 leading-relaxed md:hidden">
                                         Busco comprender a fondo las tecnologías para aportar 
@@ -339,7 +339,7 @@ function cafd_preprocess_node(&$variables) {
                                     <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg">
                                         <span className="text-white text-xl md:text-2xl">🛡️</span>
                                     </div>
-                                    <h3 className="text-sm md:text-base font-bold text-white mb-2 md:mb-3">Trabajo Colaborativo</h3>
+                                    <h3 className="text-sm md:text-lg font-bold text-white mb-2 md:mb-3">Trabajo Colaborativo</h3>
                                     {/* Versión móvil - más concisa */}
                                     <p className="text-sm text-slate-300 leading-relaxed md:hidden">
                                         Disfruto aprendiendo de otros y <strong className="text-green-400">sumando claridad en entornos colaborativos</strong>, 
@@ -376,7 +376,7 @@ function cafd_preprocess_node(&$variables) {
                                     🛠️ Stack Tecnológico
                                 </span>
                             </div>
-                            <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
+                            <h2 className="text-2xl md:text-5xl font-bold mb-3 md:mb-8">
                                 <span className="bg-gradient-to-r from-green-400 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
                                 Habilidades
                                 </span>
@@ -405,7 +405,7 @@ function cafd_preprocess_node(&$variables) {
                                         <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center">
                                             <span className="text-white text-lg">💻</span>
                                         </div>
-                                        <h4 className="text-sm font-bold text-cyan-400">Técnicas</h4>
+                                        <h4 className="text-base font-bold text-cyan-400">Técnicas</h4>
                                     </div>
                                     <div className="grid grid-cols-2 gap-2">
                                         {[
@@ -433,7 +433,7 @@ function cafd_preprocess_node(&$variables) {
                                         <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                                             <span className="text-white text-lg">🧠</span>
                                         </div>
-                                        <h4 className="text-sm font-bold text-purple-400">Personales</h4>
+                                        <h4 className="text-base font-bold text-purple-400">Personales</h4>
                                     </div>
                                     <div className="space-y-3">
                                         {[
@@ -466,8 +466,8 @@ function cafd_preprocess_node(&$variables) {
                                         <span className="text-white text-2xl">💻</span>
                                     </div>
                                     <div>
-                                        <h3 className="text-lg font-bold text-white">Habilidades Técnicas</h3>
-                                        <p className="text-cyan-400 text-sm">Tecnologías que domino</p>
+                                        <h3 className="text-2xl font-bold text-white">Habilidades Técnicas</h3>
+                                        <p className="text-cyan-400 text-base">Tecnologías que domino</p>
                                     </div>
                                 </div>
                                 
@@ -507,8 +507,8 @@ function cafd_preprocess_node(&$variables) {
                                         <span className="text-white text-2xl">🧠</span>
                                     </div>
                                     <div>
-                                        <h3 className="text-lg font-bold text-white">Habilidades Personales</h3>
-                                        <p className="text-purple-400 text-sm">Competencias que me definen</p>
+                                        <h3 className="text-2xl font-bold text-white">Habilidades Personales</h3>
+                                        <p className="text-purple-400 text-base">Competencias que me definen</p>
                                     </div>
                                 </div>
                                 
@@ -551,8 +551,8 @@ function cafd_preprocess_node(&$variables) {
 
                 <div className="container-custom relative z-10">
                     <ScrollReveal animation="zoom-rotate">
-                        <div className="text-center mb-6 md:mb-8">
-                            <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
+                        <div className="text-center mb-6 md:mb-12">
+                            <h2 className="text-2xl md:text-5xl font-bold mb-3 md:mb-8">
                                 <span className="bg-gradient-to-r from-purple-400 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
                                 Mis Proyectos
                                 </span>
@@ -633,8 +633,8 @@ function cafd_preprocess_node(&$variables) {
 
                 <div className="container-custom relative z-10">
                     <ScrollReveal animation="zoom-rotate">
-                        <div className="text-center mb-6 md:mb-8">
-                            <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
+                        <div className="text-center mb-6 md:mb-12">
+                            <h2 className="text-2xl md:text-5xl font-bold mb-3 md:mb-8">
                                 <span className="bg-gradient-to-r from-green-400 via-blue-500 to-orange-500 bg-clip-text text-transparent">
                                 Experiencia Laboral
                             </span>
@@ -738,8 +738,8 @@ function cafd_preprocess_node(&$variables) {
 
                 <div className="container-custom relative z-10">
                     <ScrollReveal animation="zoom-rotate">
-                        <div className="text-center mb-6 md:mb-8">
-                            <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
+                        <div className="text-center mb-6 md:mb-12">
+                            <h2 className="text-2xl md:text-5xl font-bold mb-3 md:mb-8">
                             <span className="bg-gradient-to-r from-orange-400 via-purple-500 to-blue-500 bg-clip-text text-transparent">
                                     Certificaciones Profesionales
                             </span>
@@ -838,13 +838,13 @@ function cafd_preprocess_node(&$variables) {
 
                 <div className="container-custom relative z-10">
                     <ScrollReveal animation="zoom-rotate">
-                        <div className="text-center mb-6 md:mb-8">
+                        <div className="text-center mb-6 md:mb-12">
                             <div className="inline-block mb-4">
                                 <span className="px-4 py-2 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 rounded-full text-sm text-emerald-300 font-semibold">
                                     🌟 Más allá del código
                                 </span>
                             </div>
-                            <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
+                            <h2 className="text-2xl md:text-5xl font-bold mb-3 md:mb-8">
                             <span className="bg-gradient-to-r from-emerald-400 via-cyan-500 to-green-500 bg-clip-text text-transparent">
                                 Conóceme más
                             </span>
