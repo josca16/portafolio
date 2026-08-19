@@ -64,6 +64,7 @@ export default function YouTubeEmbed({
             className="relative w-full bg-slate-900 rounded-lg overflow-hidden"
             style={{ aspectRatio }}
         >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
                 src={thumbnailSrc || defaultThumbnail} 
                 alt={title}
