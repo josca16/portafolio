@@ -30,11 +30,11 @@ export default function TaxiDayMobilePage() {
                 <section className="mb-12 sm:mb-16">
                     <div className="text-center mb-8 sm:mb-12">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
-                            Aplicación Móvil TaxiDay
+                            Aplicación Móvil TaxiDay (en desarrollo)
                         </h2>
                         <p className="text-base sm:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
-                            Desarrollo de una aplicación móvil nativa para la gestión de servicios de taxi, 
-                            optimizada para dispositivos móviles con React Native.
+                            Prototipo de aplicación móvil nativa para la gestión de servicios de taxi,
+                            optimizado para dispositivos móviles con React Native y todavía en desarrollo.
                         </p>
                     </div>
                 </section>
@@ -195,27 +195,6 @@ export default function TaxiDayMobilePage() {
                                     </p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Documentation */}
-                <section className="bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/10 mb-8 sm:mb-12">
-                    <div className="text-center">
-                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Documentación del Proyecto</h3>
-                        <p className="text-sm sm:text-base text-gray-300 mb-6 sm:mb-8">
-                            Presentación completa con detalles técnicos, arquitectura y decisiones de diseño del proyecto.
-                        </p>
-                        
-                        <div className="flex justify-center">
-                            <a 
-                                href="/projects/taxiday_mobile/009_PMYDM_Membrive_Martinez_JoseCarlos.pptx"
-                                download
-                                className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base"
-                            >
-                                <span>📄</span>
-                                Descargar Documentación
-                            </a>
                         </div>
                     </div>
                 </section>

@@ -10,9 +10,9 @@ Portfolio personal desarrollado con Next.js y Tailwind CSS, diseñado para mostr
 
 ## 🚀 Proyectos Destacados
 
-1. **TaxiDay** - Plataforma de gestión de taxis (React Native + Spring Boot)
+1. **TaxiDay** - Plataforma web de gestión de taxis (React + Spring Boot)
 2. **CAFD** - Aplicación para gestión de federaciones deportivas (Drupal + PHP)
-3. **Videojuegos Unity** - Tres videojuegos completos desarrollados en Unity con C#
+3. **Videojuegos Unity** - Colección de videojuegos desarrollados en Unity con C#
 
 ## 🛠️ Tecnologías Principales
 
@@ -37,28 +37,26 @@ Portfolio/
 ├── public/
 │   ├── company_logo/          # Logos de empresas
 │   ├── projects_logo/         # Logos de proyectos
-│   ├── social/                # Iconos de redes sociales
-│   └── profile.png            # Foto de perfil
+│   └── social/                # Iconos sociales y foto de perfil
 └── README.md
 ```
 
-## 🖼️ Imágenes Requeridas
+## 🖼️ Recursos visuales
 
-Para completar el portfolio, necesitas agregar las siguientes imágenes:
+Los recursos visuales utilizados actualmente se encuentran en `public/`:
 
 ### Logos de Empresas (`public/company_logo/`)
 - `codearts.png` - Logo de CodeArts Solutions
 - `cesur.png` - Logo de Cesur
 
 ### Logos de Proyectos (`public/projects_logo/`)
-- `taxiday.png` - Logo del proyecto TaxiDay
-- `cafd.png` - Logo del proyecto CAFD
-- `unity-games.png` - Logo para los videojuegos Unity
+- `LOGOtaxiday.png` - Logo del proyecto TaxiDay
+- `LOGOtaxiday_mobile.png` - Logo de TaxiDay Mobile
+- `logoCAFD.png` - Logo del proyecto CAFD
+- `unityLogo.png` - Logo para los videojuegos Unity
 
 ### Foto de Perfil
-- `public/profile.png` - Tu foto de perfil profesional
-
-**Formato recomendado:** PNG, 200x200px para logos, 400x400px para foto de perfil
+- `public/social/profile.png` - Foto de perfil profesional
 
 ## 🚀 Instalación y Ejecución
 

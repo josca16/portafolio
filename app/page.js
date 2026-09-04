@@ -30,7 +30,7 @@ export default function Home() {
             title: "Estudiante de Grado Superior",
             company: "Cesur",
             period: "Sep. 2023 - Jun. 2025",
-            description: "Grado Superior en Desarrollo de Aplicaciones Multiplataforma con GPA de 8.2/10. Formación integral en desarrollo web, móvil, bases de datos y herramientas modernas de desarrollo.",
+            description: "Grado Superior en Desarrollo de Aplicaciones Multiplataforma con GPA de 8.6/10. Formación integral en desarrollo web, móvil, bases de datos y herramientas modernas de desarrollo.",
             projects: [
                 "Programación orientada a objetos con Java y C#",
                 "Desarrollo web con HTML5, CSS3, JavaScript y PHP",
@@ -68,18 +68,18 @@ export default function Home() {
             description: "Plataforma completa para gestión de taxistas con control de jornadas, carreras y estadísticas",
             image: "/projects_logo/LOGOtaxiday.png",
             domain: "/projects/taxiday",
-            technologies: ["React Native", "Spring Boot", "Java", "MariaDB", "JWT", "REST API"],
+            technologies: ["React", "Spring Boot", "Java", "MariaDB", "JWT", "REST API"],
             category: "Full Stack",
             status: "Completado"
         },
         {
             title: "TaxiDay Mobile",
-            description: "Aplicación móvil nativa con interfaz intuitiva para servicios de taxi",
+            description: "Aplicación móvil nativa para servicios de taxi, actualmente en desarrollo",
             image: "/projects_logo/LOGOtaxiday_mobile.png",
             domain: "/projects/taxiday-mobile",
             technologies: ["React Native", "Redux", "JavaScript", "APIs", "Navigation"],
             category: "Mobile App",
-            status: "Completado"
+            status: "En desarrollo"
         },
         {
             title: "CAFD",
