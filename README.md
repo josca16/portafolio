@@ -1,99 +1,104 @@
-# Portfolio Personal - Jose Carlos Membrive Martinez
+# Portfolio — Jose Carlos Membrive Martínez
 
-Portfolio personal desarrollado con Next.js y Tailwind CSS, diseñado para mostrar proyectos, experiencia y habilidades técnicas.
+Portfolio personal construido con Next.js 15 y Tailwind CSS 4. Diseño propio
+(no una plantilla): tema claro "papel", tipografía condensada, acento naranja,
+y una única fuente de verdad para el sistema de diseño en `app/globals.css`.
 
-## 📋 Información Personal
+**En vivo:** https://portfolio-josecarlos.vercel.app
+**Repo:** https://github.com/josca16/new-portfolio
 
-- **Nombre:** Jose Carlos Membrive Martinez
-- **Títulado:** Técnico Superior en Desarrollo de Aplicaciones Multiplataforma
-- **Email:** josecarlosmartinez98@outlook.com
+## Contenido
 
-## 🚀 Proyectos Destacados
+- [Stack](#stack)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Detalles a propósito](#detalles-a-propósito)
+- [Proyectos mostrados](#proyectos-mostrados)
+- [Desarrollo local](#desarrollo-local)
+- [Contacto](#contacto)
 
-1. **TaxiDay** - Plataforma web de gestión de taxis (React + Spring Boot)
-2. **CAFD** - Aplicación para gestión de federaciones deportivas (Drupal + PHP)
-3. **Videojuegos Unity** - Colección de videojuegos desarrollados en Unity con C#
+## Stack
 
-## 🛠️ Tecnologías Principales
+Del portfolio en sí (no confundir con el stack de cada proyecto mostrado,
+que varía por proyecto y se explica en su propia página de detalle):
 
-- **Backend:** Java, Spring Boot, PHP, C#
-- **Frontend:** React Native, JavaScript, HTML5, CSS3
-- **Bases de Datos:** SQL, MariaDB, MongoDB
-- **Herramientas:** Git, Docker, Azure, Unity
-- **Metodologías:** Scrum, POO, APIs REST
+| Capa | Tecnología |
+|---|---|
+| Framework | Next.js 15 (App Router, Turbopack) |
+| UI | React 19 |
+| Estilos | Tailwind CSS 4 + CSS propio en `globals.css` |
+| Tipografías | Space Grotesk (texto), DM Mono (etiquetas/datos) |
+| Animaciones | CSS + `IntersectionObserver` nativo, sin librerías |
+| Despliegue | Vercel |
 
-## 📁 Estructura del Proyecto
+## Estructura del proyecto
 
 ```
 Portfolio/
 ├── app/
-│   ├── components/
-│   │   ├── Header.js          # Header con información personal
-│   │   ├── ExperienceItem.js  # Componente para experiencia laboral
-│   │   └── ProjectItem.js     # Componente para proyectos
-│   ├── globals.css            # Estilos globales
-│   ├── layout.js              # Layout principal
-│   └── page.js                # Página principal
+│   ├── api/cv/route.js        # Endpoint oculto: GET /api/cv devuelve el CV en JSON
+│   │   ├── projects/
+│   │   ├── _shared.js         # Chrome común de las páginas de detalle
+│   │   ├── taxiday/page.js
+│   │   ├── taxiday-mobile/page.js
+│   │   ├── cafd/page.js
+│   │   └── videojuegos-unity/page.js
+│   ├── globals.css            # Sistema de diseño completo (única fuente de verdad)
+│   ├── layout.js               # Layout raíz + carga de fuentes
+│   ├── page.js                 # Entry point (renderiza NewPortfolioHome)
+│   ├── NewPortfolioHome.js     # Home: hero, proyectos, capacidades, sobre mí, contacto
+│   ├── PortfolioAssistant.js  # Widget de chat local (botón "pregúntame")
+│   └── ScrollReveal.js         # Animaciones al hacer scroll
 ├── public/
-│   ├── company_logo/          # Logos de empresas
-│   ├── projects_logo/         # Logos de proyectos
-│   └── social/                # Iconos sociales y foto de perfil
+│   ├── company_logo/           # Logos de empresas (Cesur, CodeArt Solutions)
+│   ├── projects_logo/          # Logos de cada proyecto
+│   ├── projects/                # Capturas y demos por proyecto
+│   ├── certificaciones/         # PDFs de certificados
+│   └── social/                  # Iconos sociales y foto de perfil
 └── README.md
 ```
 
-## 🖼️ Recursos visuales
+Regla simple: si un archivo no aparece en este árbol, no se usa. La última
+limpieza retiró 12 componentes de una iteración de diseño anterior (dark
+theme con `backdrop-blur`), una ruta de prueba y ~500 líneas de CSS duplicado
+que ya no correspondían a lo que se ve en producción.
 
-Los recursos visuales utilizados actualmente se encuentran en `public/`:
+## Detalles a propósito
 
-### Logos de Empresas (`public/company_logo/`)
-- `codearts.png` - Logo de CodeArts Solutions
-- `cesur.png` - Logo de Cesur
+Cosas que están así intencionadamente, por si alguien las revisa:
 
-### Logos de Proyectos (`public/projects_logo/`)
-- `LOGOtaxiday.png` - Logo del proyecto TaxiDay
-- `LOGOtaxiday_mobile.png` - Logo de TaxiDay Mobile
-- `logoCAFD.png` - Logo del proyecto CAFD
-- `unityLogo.png` - Logo para los videojuegos Unity
+- **`GET /api/cv`** — devuelve el CV completo en JSON. Pensado para quien
+  mire la red o el código fuente en vez de leer la página.
+- **Widget de chat** (`pregúntame >_`) — responde preguntas básicas sobre
+  el perfil sin backend ni coste de API.
+- **Micro-interacciones deliberadas** — el punto verde de disponibilidad
+  pulsa, el subrayado de la navegación se dibuja al pasar el ratón, las
+  flechas de los botones se desplazan, las filas de "lo que aporto" y
+  "sobre mí" reaccionan al pasar por encima. Todo respeta
+  `prefers-reduced-motion`.
 
-### Foto de Perfil
-- `public/social/profile.png` - Foto de perfil profesional
+## Proyectos mostrados
 
-## 🚀 Instalación y Ejecución
+| # | Proyecto | Tipo | Stack |
+|---|---|---|---|
+| 01 | TaxiDay | Backend / Full stack | Java 17 · Spring Boot · REST · MariaDB · Docker |
+| 02 | CAFD | Proyecto profesional (prácticas) | Drupal · SQL · Scrum |
+| 03 | Videojuegos Unity | Proyecto personal | Unity · C# |
+| 04 | TaxiDay Mobile | En desarrollo | React Native · JavaScript |
 
-1. **Instalar dependencias:**
-   ```bash
-   npm install
-   ```
+## Desarrollo local
 
-2. **Ejecutar en desarrollo:**
-   ```bash
-   npm run dev
-   ```
+```bash
+npm install
+npm run dev      # http://localhost:3000 (o el siguiente puerto libre)
+npm run build    # build de producción
+npm start        # sirve el build de producción
+```
 
-3. **Construir para producción:**
-   ```bash
-   npm run build
-   ```
+## Contacto
 
-4. **Ejecutar en producción:**
-   ```bash
-   npm start
-   ```
-
-## 📱 Características
-
-- ✅ Diseño responsive
-- ✅ Modo oscuro
-- ✅ Animaciones suaves
-- ✅ SEO optimizado
-- ✅ Accesibilidad mejorada
-- ✅ Carga rápida
-
-## 🔗 Enlaces de Redes Sociales
-
+- **Email:** josecarlosmartinez98@outlook.com
 - **LinkedIn:** https://www.linkedin.com/in/jose-carlos-membrive/
 - **GitHub:** https://github.com/josca16
 
-## 📄 Licencia
-
-© 2025 Jose Carlos Membrive Martinez. Todos los derechos reservados.
+---
+© 2025 Jose Carlos Membrive Martínez.
