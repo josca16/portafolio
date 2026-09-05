@@ -1,28 +1,29 @@
-import { Inter, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
     subsets: ["latin"],
-    variable: "--font-inter",
+    variable: "--font-space",
     display: "swap",
 });
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
+const dmMono = DM_Mono({
+    variable: "--font-mono",
     subsets: ["latin"],
+    weight: ["300", "400", "500"],
 });
 
 export const metadata = {
-    title: "Portfolio de Jose Carlos | Desarrollador de Software",
+    title: "Jose Carlos Membrive | Backend Java e IA aplicada",
     description:
-        "Portfolio profesional de Jose Carlos, desarrollador de software con experiencia en desarrollo fullstack y aplicaciones móviles.",
+        "Portfolio profesional de Jose Carlos Membrive, desarrollador junior orientado a backend Java, Spring Boot e IA aplicada.",
 };
 
 export default function RootLayout({ children }) {
     return (
         <html lang="es">
             <body
-                className={`${inter.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-[#fafafc] via-[#e2e2e2] to-[#cbd5e1]`}
+                className={`${spaceGrotesk.variable} ${dmMono.variable} antialiased`}
             >
                 {children}
             </body>
