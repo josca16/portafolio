@@ -106,6 +106,8 @@ button:focus-visible {
     text-transform: uppercase;
 }
 
+.hero-eyebrow-mobile { display: none; }
+
 .hero h1, .section-heading h2, .about-copy h2, .contact-block h2 {
     font-size: clamp(3.5rem, 8vw, 7.3rem);
     font-weight: 650;
@@ -129,6 +131,7 @@ button:focus-visible {
 }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero-status-mobile { display: none; }
 .button { align-items: center; display: inline-flex; font-size: 0.85rem; font-weight: 700; gap: 18px; justify-content: center; padding: 15px 20px; transition: transform 180ms ease, box-shadow 180ms ease; }
 .button:hover { box-shadow: 5px 5px 0 var(--ink); transform: translate(-2px, -2px); }
 .button-primary { background: var(--orange); color: white; }
@@ -192,8 +195,13 @@ button:focus-visible {
 @media (max-width: 800px) {
     .page-width { width: min(100% - 32px, 620px); }
     .nav-links a:not(.nav-cta) { display: none; }
-    .hero { gap: 52px; grid-template-columns: 1fr; min-height: auto; padding: 75px 0 65px; }
-    .hero-side { justify-self: start; max-width: 280px; }
+    .hero { gap: 30px; grid-template-columns: 1fr; min-height: auto; padding: 20px 0 50px; }
+    .hero-side { align-items: center; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; justify-self: start; max-width: 100%; order: -1; padding-bottom: 22px; width: 100%; }
+    .hero-eyebrow-main { display: none; }
+    .hero-eyebrow-mobile { display: block; margin-bottom: 0; }
+    .portrait-frame { aspect-ratio: 1 / 1; border: 1px solid var(--ink); box-shadow: 5px 5px 0 var(--orange); flex: 0 0 96px; width: 96px; }
+    .hero-note { display: none; }
+    .hero-status-mobile { color: var(--muted); display: block; font-size: 0.95rem; line-height: 1.5; margin: 6px 0 0; max-width: 420px; }
     .proof-strip { grid-template-columns: repeat(2, 1fr); row-gap: 22px; }
     .proof-strip div:nth-child(2) { border-right: 0; }
     .proof-strip div:nth-child(3) { padding-left: 0; }

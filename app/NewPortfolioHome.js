@@ -77,7 +77,7 @@ export default function NewPortfolioHome() {
 
             <section id="top" className="hero page-width">
                 <div className="hero-copy">
-                    <p className="eyebrow">SEVILLA · DISPONIBLE PARA OPORTUNIDADES</p>
+                    <p className="eyebrow hero-eyebrow-main">SEVILLA · DISPONIBLE PARA OPORTUNIDADES</p>
                     <h1>
                         Construyo software con
                         <em> criterio.</em>
@@ -89,8 +89,10 @@ export default function NewPortfolioHome() {
                         <a className="button button-primary" href="#work">Ver proyectos <span>↘</span></a>
                         <a className="button button-quiet" href="https://github.com/josca16" target="_blank" rel="noreferrer">GitHub ↗</a>
                     </div>
+                    <p className="hero-status-mobile">Buscando mi primera oportunidad estable en desarrollo de software.</p>
                 </div>
                 <div className="hero-side">
+                    <p className="eyebrow hero-eyebrow-mobile">SEVILLA · DISPONIBLE<br />PARA OPORTUNIDADES</p>
                     <div className="portrait-frame">
                         <Image src="/social/profile.png" alt="Jose Carlos Membrive" fill sizes="(max-width: 800px) 70vw, 340px" priority />
                     </div>
